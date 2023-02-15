@@ -1,6 +1,7 @@
 package com.korit.museum.config;
 
 import com.korit.museum.service.LoginService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -11,12 +12,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private LoginService loginService;
-
-    public SecurityConfig(LoginService loginService){
-        this.loginService = loginService;
-    }
+    private final LoginService loginService;
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder(){
@@ -28,12 +26,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
-                .loginPage("/")
-                .defaultSuccessUrl("/admin")
+                .loginPage("/admin/authentication")
                 .usernameParameter("adminId")
+                .loginProcessingUrl("/admin/authentication")
+                .defaultSuccessUrl("/admin")
                 .and()
                 .logout()
                 .logoutSuccessUrl("/")
@@ -43,8 +42,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .accessDeniedPage("/accessDenied");
     }
 
-    @Override
-    protected  void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(loginService).passwordEncoder(passwordEncoder());
-    }
 }

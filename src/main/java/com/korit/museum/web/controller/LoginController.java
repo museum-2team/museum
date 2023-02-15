@@ -7,10 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Slf4j
 @Controller
 public class LoginController {
-    @GetMapping({"/", ""})
+    @GetMapping({"/", "adminlogin"})
     public String loginForm(){
-        return loginForm();
+        return "loginForm";
     }
-
-
 }
