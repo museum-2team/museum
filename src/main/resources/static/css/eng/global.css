@@ -1,0 +1,102 @@
+@charset "utf-8";
+
+body {
+	margin:0;
+	padding:0;
+	font-size:0.75em;
+	font-family:'Arial', arial, Batang, Garamond, 'Times New Roman', serif, sans-serif;
+	color:#666;
+	line-height:1.5;
+}
+
+a:link {text-decoration:none; color:#666;}
+a:active {text-decoration:none; color:#333;}
+a:visited {text-decoration:none; color:#333;}
+a:hover {text-decoration:underline; color:#333;}
+a:focus {text-decoration:underline; color:#333;}
+
+ul, dl, ol , dt, dd, h1, h2, h3, h4, p, th, td, textarea {margin:0; padding:0;}
+ul, ol, li {list-style-type:none;}
+
+form {margin:0px; padding:0px;}
+fieldset {display:block; margin:0; padding:0; border:0;}
+legend {display:none; position:absolute; visibility:hidden; width:0; height:0; overflow:hidden; font:0/0 arial;}
+textarea {padding:5px; border:1px solid #666; resize:none}
+input, select, textarea {font-family:'바탕', Batang, Garamond, 'Times New Roman', serif, sans-serif;color:#959595;}
+input.text {margin:0;padding:5px 0; height:14px; border:0 none; border-bottom:1px solid #DADADA;line-height:1;}
+
+button{overflow:visible;border:0 none;cursor:pointer;}
+button::-moz-focus-inner {border:0;padding:0;}
+
+img {border:0;}
+a, span, strong, em, label {display:inline-block;}
+img, a, span, strong, em, label, input, select, button, textarea {vertical-align:top;}
+hr {display:none;}
+
+em, address {font-style:normal;}
+
+table {clear:both; border-collapse:collapse; border-spacing:0; word-break:break-all; color:#666;}
+caption {margin:0; padding:0; width:0; height:0; overflow:hidden; font:0/0 arial;}
+
+.clfix:after {content: "."; display: block; height: 0px; clear: both; visibility: hidden;}
+.clfix {display: inline-block;}
+.clfix {display: block;}
+* html .clfix {height: 1%;} /* hides from ie-mac */
+.clfix{ zoom:1; } /*for ie 5.5-7*/
+
+/* padding */
+.pd0 {padding:0 !important;}
+.pdt0 {padding-top:0 !important;}
+.pdb0 {padding-bottom:0 !important;}
+.pdl0 {padding-left:0 !important;}
+.pdr0 {padding-right:0 !important;}
+
+/* margin */
+.mg0 {margin:0 !important;}
+.mgt0 {margin-top:0 !important;}
+.mgb0 {margin-bottom:0 !important;}
+.mgl0 {margin-left:0 !important;}
+.mgr0 {margin-right:0 !important;}
+
+/* font size */
+.fsn {font-size:12px !important;}
+.fss {font-size:11px !important;}
+
+/* font weight */
+.fwn {font-weight:normal !important;}
+.fwb {font-weight:bold !important;}
+
+/* line */
+.lh18 {line-height:18px !important;}
+
+/* float */
+.fl {float:left !important;}
+.fr {float:right !important;}
+.cboth {clear:both;}
+
+/* font color */
+.fc333 {color:#333;}
+.fc666 {color:#666;}
+.fcdedede {color:#dedede;}
+
+/* align */
+.vat {vertical-align:top !important;}
+.vam {vertical-align:middle !important;}
+.vab {vertical-align:bottom !important;}
+.agl {text-align:left !important;}
+.agc {text-align:center !important;}
+.agr {text-align:right !important;}
+
+/* none */
+.hidden {display:none;}
+.blind {position:absolute; width:0; height:0; font-size:0; line-height:0; overflow:hidden; }
+.bgn {background:none !important;}
+.bdb0 {border-bottom:none !important;}
+.bdr0 {border-right:none !important;}
+
+/* paging */
+.paging {clear:both; padding:25px 0 0; text-align:center; margin:0;}
+
+/* button */
+.button {clear:both; width:100%; padding-top:30px; text-align:center;}
+.button * {vertical-align:top;}
