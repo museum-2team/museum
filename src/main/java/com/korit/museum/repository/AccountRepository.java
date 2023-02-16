@@ -1,4 +1,9 @@
 package com.korit.museum.repository;
 
-public class AccountRepository {
+
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface AccountRepository {
+
 }
