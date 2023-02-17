@@ -12,10 +12,10 @@ public class PaintingReqDto {
     private String exhibitionWorks;
     private String exhibitionPeriod;
 
-    private String info_paintingName;
+    private String paintingName;
     private String author;
-    private String info_paintingSize;
+    private String paintingSize;
     private String year_of_Manufacture;
-    private String info_material;
+    private String material;
 
 }

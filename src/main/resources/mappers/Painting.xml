@@ -15,14 +15,11 @@
             exhibition_work as exhibitionWorks,
             exhibition_period as exhibitionPeriod,
 
-            painting_name as info_paintingName,
+            painting_name as paintingName,
             author,
-            painting_size as info_paintingSize,
+            painting_size as paintingSize,
             year_of_manufacture as year_of_Manufacture,
-            material as info_Material,
-
-            painting_create_date as create_date,
-            painting_update_date as update_date
+            material as Material
         from
             painting_mst
         where
@@ -76,8 +73,8 @@
     <insert id="savePainting" parameterType="com.korit.museum.web.dto.PaintingReqDto">
         insert into painting_mst
         values
-            (0, #{paintingCode}, #{paintingTitleName}, #{viewingTime},  #{exhibitionWorks}, #{exhibitionWorks}, #{exhibitionPeriod}, #{info_paintingName},
-            #{author}, #{info_paintingSize}, #{year_of_Manufacture}, #{info_material}, #{create_date}, #{update_date})
+            (0, #{paintingCode}, #{paintingTitleName}, #{viewingTime},  #{exhibitionWorks}, #{exhibitionWorks}, #{exhibitionPeriod}, #{paintingName},
+            #{author}, #{paintingSize}, #{year_of_Manufacture}, #{material})
     </insert>
 
     <update id="updatePaintingByPaintingCode" parameterType="com.korit.museum.web.dto.PaintingReqDto">
@@ -88,9 +85,13 @@
             exhibition_works = if(#{exhibitionWorks} = '', null, #{exhibitionWorks}),
             exhibition_period = if(#{exhibitionPeriod} = '', null, #{exhibitionPeriod}),
 
-            painting_name = #{info_paintingName},
+            painting_name = #{paintingName},
             author = if(#{author} = '', null, #{author}),
-
+            painting_size = if(#{author} = '', null, #{paintingSize}),
+            year_of_manufacture = if(#{author} = '', null, #{year_of_Manufacture}),
+            material = if(#{author} = '', null, #{material})
+        where
+            painting_code = #{paintingCode}
     </update>
 
 
