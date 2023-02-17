@@ -9,10 +9,20 @@
         select
             painting_id as paintingId,
             painting_code as paintingCode,
-            painting_name as paintingName,
+
+            painting_title_name as paintingTitleName,
+            viewing_time as viewingTime,
+            exhibition_work as exhibitionWorks,
             exhibition_period as exhibitionPeriod,
+
+            painting_name as info_paintingName,
             author,
-            painting_mstcol as paintingMstCol,
+            painting_size as info_paintingSize,
+            year_of_manufacture as year_of_Manufacture,
+            material as info_Material,
+
+            painting_create_date as create_date,
+            painting_update_date as update_date
         from
             painting_mst
         where
@@ -30,7 +40,7 @@
     <select id="findPaintingImageAll" resultType="com.korit.museum.entity.PaintingImage">
         select
             image_id as imageId,
-            book_code as paintingCode,
+            painting_code as paintingCode,
             save_name as saveName,
             origin_name as originName
         from
@@ -42,7 +52,7 @@
     <select id="findPaintingByImageId" resultType="com.korit.museum.entity.PaintingImage">
         select
             image_id as imageId,
-            book_code as paintingCode,
+            painting_code as paintingCode,
             save_name as saveName,
             origin_name as originName
         from
@@ -54,7 +64,7 @@
     <select id="findPaintingByImageCode" resultType="com.korit.museum.entity.PaintingImage">
         select
             image_id as imageId,
-            book_code as paintingCode,
+            painting_code as paintingCode,
             save_name as saveName,
             origin_name as originName
         from
@@ -66,9 +76,22 @@
     <insert id="savePainting" parameterType="com.korit.museum.web.dto.PaintingReqDto">
         insert into painting_mst
         values
-            (0, #{paintingCode}, #{paintingId}, #{paintingTitelname}, #{viewingTime},  #{exhibitionWorks}, #{exhibitionWorks}, #{exhibitionPeriod}, #{info_paintingName},
-            #{info_author}, #{info_paintingSize}, #{info_paintingMstcol}, #{info_material})
+            (0, #{paintingCode}, #{paintingTitleName}, #{viewingTime},  #{exhibitionWorks}, #{exhibitionWorks}, #{exhibitionPeriod}, #{info_paintingName},
+            #{author}, #{info_paintingSize}, #{year_of_Manufacture}, #{info_material}, #{create_date}, #{update_date})
     </insert>
+
+    <update id="updatePaintingByPaintingCode" parameterType="com.korit.museum.web.dto.PaintingReqDto">
+        update painting_mst
+        set
+            painting_title_name = #{paintingTitleName},
+            viewing_time = if(#{viewingTime} = '', null, #{viewingTime}),
+            exhibition_works = if(#{exhibitionWorks} = '', null, #{exhibitionWorks}),
+            exhibition_period = if(#{exhibitionPeriod} = '', null, #{exhibitionPeriod}),
+
+            painting_name = #{info_paintingName},
+            author = if(#{author} = '', null, #{author}),
+
+    </update>
 
 
 </mapper>
