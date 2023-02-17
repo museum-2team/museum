@@ -23,19 +23,19 @@ public class PaintingService {
         return result;
     }
 
-//    public void registerPainting(PaintingReqDto paintingReqDto){
-//        duplicatePaintingCode(paintingReqDto.getPaintingCode());
-//        PaintingRepository.savePainting(PaintingReqDto);
-//    }
-//
-//    private void duplicatePaintingCode(String paintingCode) {
-//        PaintingMst paintingMst = PaintingRepository.findPaintingByPaintingCode(paintingCode);
-//        if(paintingMst != null) {
-//            Map<String, String> errorMap = new HashMap<>();
-//            errorMap.put("paintingCode", "이미 존재하는 작품입니다.");
-//
-//            throw new CustomValidationException(errorMap);
-//        }
-//    }
+    public void registerPainting(PaintingReqDto paintingReqDto){
+        duplicatePaintingCode(paintingReqDto.getPaintingCode());
+        PaintingRepository.savePainting(PaintingReqDto);
+    }
+
+    private void duplicatePaintingCode(String paintingCode) {
+        PaintingMst paintingMst = PaintingRepository.findPaintingByPaintingCode(paintingCode);
+        if(paintingMst != null) {
+            Map<String, String> errorMap = new HashMap<>();
+            errorMap.put("paintingCode", "이미 존재하는 작품입니다.");
+
+            throw new CustomValidationException(errorMap);
+        }
+    }
 
 }
