@@ -14,12 +14,12 @@ public interface PaintingRepository {
 
     public int savePainting (PaintingReqDto paintingReqDto);
 
+    public int updatePaintingByPaintingCode (PaintingReqDto paintingReqDto);
+
     public int registerPaintingImages (List<PaintingImage> paintingImages);
 
     public List<PaintingImage> findPaintingImageAll(String paintingCode);
-
     public PaintingImage findPaintingByImageId (int imageId);
-
     public PaintingImage findPaintingByImageCode (String imageCode);
 
 
