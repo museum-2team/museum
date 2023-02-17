@@ -24,6 +24,4 @@ public class SearchPainting {
     private String material;
     private String saveName;
 
-    private int userId;
-
 }

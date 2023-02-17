@@ -8,7 +8,19 @@
             parameterType="com.korit.museum.web.dto.SearchPaintingReqDto"
             resultType="com.korit.museum.entity.SearchPainting">
         select
-            pm.
+            pm.painting_id as paintingId,
+            pm.painting_code as paintingCode,
+
+            pm.painting_name as paintingName,
+            pm.authoer,
+            pm.year_of_manufacture as year_of_Manufacture,
+
+            pi.save_name as saveName
+
+        from
+            painting_mst pm
+            left outer join painting_image pi
+
 
     </select>
 </mapper>
