@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Builder
 @NoArgsConstructor
@@ -37,5 +38,7 @@ public class UserMst {
 
     @NotBlank
     private LocalDateTime updateDate;
+
+    private List<RoleDtl> roleDtl;
 
 }
