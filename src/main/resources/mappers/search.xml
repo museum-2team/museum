@@ -10,7 +10,6 @@
         select
             pm.painting_id as paintingId,
             pm.painting_code as paintingCode,
-
             pm.painting_name as paintingName,
             pm.authoer,
             pm.year_of_manufacture as year_of_Manufacture,
@@ -20,7 +19,15 @@
         from
             painting_mst pm
             left outer join painting_image pi
+                on(pi.painting_code = pm.painting_code)
+        where
+        1 = 1
+        <if test="searchValue != null and searchValue != ''">
+            and (pm.painting_name like concat('%', #{searchValue} ,'%')
+            or pm.author like concat ('%', #{searchValue}, '%')
+            or pm.year_of_manufacture like concat('%', #{searchValue}, '%'))
+        </if>
 
-
+        limit #{index}, #{count};
     </select>
 </mapper>
