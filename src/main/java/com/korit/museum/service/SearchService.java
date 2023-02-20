@@ -19,6 +19,4 @@ public class SearchService {
         searchPaintingReqDto.setIndex();
         return searchRepository.userSearchPaintings(searchPaintingReqDto);
     }
-
-
 }

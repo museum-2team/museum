@@ -3,7 +3,9 @@ package com.korit.museum.security;
 import com.korit.museum.entity.RoleDtl;
 import com.korit.museum.entity.RoleMst;
 import com.korit.museum.entity.UserMst;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -12,15 +14,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class PrincipalDetails implements UserDetails {
 
     @Getter
     private final UserMst user;
-
-    public PrincipalDetails(UserMst user) {
-        this.user = user;
-    }
 
     //User 권한 리턴
     @Override
