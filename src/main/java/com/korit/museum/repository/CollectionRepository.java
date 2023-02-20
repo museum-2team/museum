@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface CollectionRepository {
 
-    public CollectionMst findCollectionByCollectionCode(String collectionCode);
+    public CollectionMst findCollectionByCollectionName(String collectionCode);
 
     public int saveCollection(CollectionReqDto collectionReqDto);
 

@@ -5,7 +5,7 @@
 
 <mapper namespace="com.korit.museum.repository.CollectionRepository">
 
-    <select id="findCollectionByCollectionCode" resultType="com.korit.museum.entity.CollectionMst">
+    <select id="findCollectionByCollectionName" resultType="com.korit.museum.entity.CollectionMst">
         select
             collection_id as collectionId,
             collection_name as collectionName,
@@ -17,7 +17,7 @@
         from
             collection_mst
         where
-            collection_code = #{collectionCode};
+            collection_name = #{collectionName};
     </select>
 
     <insert id="saveCollection" parameterType="com.korit.museum.web.dto.CollectionReqDto">

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class CollectionImage {
     private int imageId;
-    private String CollectionCode;
+    private String collectionCode;
     private String saveName;
     private String originName;
 }
