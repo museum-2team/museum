@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.korit.museum.repository.CollectionRepository">
+
+    <select id="findCollectionByCollectionCode" resultType="com.korit.museum.entity.CollectionMst">
+        select
+            collection_id as collectionId,
+            collection_name as collectionName,
+            authoer,
+            location,
+            collection_size as collectionSize,
+            year_of_manufacture as year_of_Manufacture,
+            material
+        from
+            collection_mst
+        where
+            collection_code = #{collectionCode};
+    </select>
+
+    <insert id="saveCollection" parameterType="com.korit.museum.web.dto.CollectionReqDto">
+        insert into collection_mst
+        values
+            (0, #{collectionName}, #{author}, #{location}, #{collectionSize}, #{year_of_Manufacture},
+        #{material}, #{create_date}, #{update_date}
+    </insert>
+
+    <update id="updateCollectionByCollectionCode" parameterType="com.korit.museum.web.dto.CollectionReqDto">
+        update collection_mst
+        set
+            collection_name = #{collectionName},
+            <if test="author != null and author != ''"> author = #{author},</if>
+            <if test="location != null and location != ''"> location = #{location},</if>
+            <if test="year_of_Manufacture != null">year_of_manufacture = #{year_of_manufacture}</if>
+            material = #{material}
+        where
+            collection_code = #{collection_Code}
+    </update>
+
+    <insert id="registerCollectionImages" parameterType="List">
+        insert into collection_images
+        values
+            <foreach collection="List" item="file" separator=",">
+                (0, #{file,collectionCode}, #{file,saveName}, #{file,originName})
+            </foreach>
+    </insert>
+
+    <select id="findCollectionImageAll" resultType="com.korit.museum.entity.CollectionImage">
+        select
+            image_id as imageId,
+            collection_code as collectionCode,
+            save_name as saveName,
+            origin_name as originName
+        from
+            collection_image
+        where
+            collection_code = #{collectionCode}
+    </select>
+
+    <select id="findCollectionImageByImageId" resultType="com.korit.museum.entity.CollectionImage">
+        select
+            image_id as imageId,
+            collection_code as collectionCode,
+            save_name as saveName,
+            origin_name as originName
+        from
+            collection_image
+        where
+            collection_code = #{collectionCode}
+    </select>
+
+    <select id="findCollectionImageByCollectionCode" resultType="com.korit.museum.entity.CollectionImage">
+        select
+            image_id as imageId,
+            collection_code as collectionCode,
+            save_name as saveName,
+            origin_name as originName
+        from
+            collection_image
+        where
+            collection_code = #{collectionCode}
+
+    </select>
+
+    <delete id="deleteCollection">
+        delete
+        from
+            collection_mst
+        where
+            collection_code = #{collectionCode}
+    </delete>
+
+    <delete id="deleteCollections">
+        delete
+        from
+            collection_mst
+        where
+            collection_code = #{collectionCode}
+    </delete>
+
+    <delete id="deleteCollectionImage">
+        delete
+        from
+            collection_image
+        where
+            image_id = #{imageId};
+    </delete>
+
+</mapper>
