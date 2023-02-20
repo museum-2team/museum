@@ -1,13 +1,4 @@
-/************************************************************************
-*************************************************************************
-@Name :       	Selectyze - jQuery Plugin
-@Revison :    	1.1
-@Date : 		25/01/2011
-@Author:     	Mickael SURREL - ALPIXEL Agency - (www.myjqueryplugins.com - www.alpixel.fr) 
-@License :		 Open Source - MIT License : http://www.opensource.org/licenses/mit-license.php
- 
-**************************************************************************
-*************************************************************************/
+
 (function($) {
 	$.fn.Selectyze = function(opt) {
 		var defaults = {

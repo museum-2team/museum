@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<head>
+	
+
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta http-equiv="Imagetoolbar" content="no" />
+<meta name="keywords" content="posco, " />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>posco art museum </title>
+<link rel="stylesheet" type="text/css" href="/static/css/kor/contents.css" />
+<script type="text/javascript" src="/static/js/kor/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/static/js/kor/design.js"></script>
+<script type="text/javascript" src="/static/js/kor/Selectyze.jquery.js"></script>
+<script type="text/javascript" src="/static/js/kor/interaction/Main.js"></script>
+<script type="text/javascript" src="/static/js/kor/interaction/TweenMax.js"></script>
+<script type="text/javascript" src="/static/js/kor/jquery.js"></script>
+<script type="text/javascript" src="/static/js/kor/common.js"></script>
+<script type="text/javascript" src="/static/js/kor/activex_patch.js"></script>
+<script type="text/javascript" src="/static/js/com/jquery-preload.js"></script>
+<script type="text/javascript" src="/static/js/com/jquery-resize.js"></script>
+<script type="text/javascript" src="/static/js/com/common.js"></script>
+
+<script type="text/javascript">
+var j$=jQuery.noConflict();
+</script>
+<script language="JavaScript1.2"> 
+
+var clickmessage="이미지 저장은 불가능합니다." 
+
+function disableclick(e) { 
+if (document.all) { 
+if (event.button==2||event.button==3) { 
+if (event.srcElement.tagName=="IMG"){ 
+alert(clickmessage); 
+return false; 
+} 
+} 
+} 
+if (document.layers) { 
+if (e.which == 3) { 
+alert(clickmessage); 
+return false; 
+} 
+} 
+} 
+
+function associateimages(){ 
+for(i=0;i<document.images.length;i++) 
+document.images[i].onmousedown=disableclick; 
+} 
+
+if (document.all) 
+document.onmousedown=disableclick 
+else if (document.layers) 
+associateimages() 
+</script>
+
+</head>
+<body>
+
+<!-- skip navi -->
+<ul id="skip_navi">
+	<li><a href="#p_title">본문내용 바로가기</a></li>
+	<li><a href="#lnb">주메뉴 바로가기</a></li>
+</ul>
+<!--// skip navi -->
+
+<div id="wrap">
+
+	<!-- top -->
+	
+
+
+
+
+<div id="header">
+	<h1 class="logo">
+		<a href="main.html"><img src="/static/img/kor/layout/logo_posco_art.gif" alt="POSCO art museum" /></a>
+		<span><img src="/static/img/kor/layout/logo_posco_art_txt.gif" alt="Art in Life, Life in Art" /></span>
+	</h1>
+	<div class="util-nav">
+		<h2 class="blind">유틸메뉴</h2>
+		<ul>
+			<li class="util01"><a href="kr/information/info0399aa.html?mid=105" title="오시는 길 안내 페이지로 이동"><span class="blind">오시는 길</span></a></li>
+		
+			<li class="util03"><a href="kr/global/sitemap.html"><span class="blind">Site Map</span></a></li>
+		</ul>
+	</div>
+</div>
+	<!-- //top -->
+	
+	<!-- container -->
+	<div id="container">
+		
+		<!-- lnb(local navigation bar) -->
+		
+
+
+
+
+
+<div id="lnb">
+	<h2 class="blind">주메뉴</h2>
+	<ul>
+		<li>
+<a href="kr/information/info01d9ad.html?mid=102"><img src="/static/img/kor/layout/gnb01.gif" alt="Posco Art Museum" /></a>
+<ul class="depth2">
+<li><a href="kr/information/info0176c2.html?mid=103"><img src="/static/img/kor/layout/gnb0101.gif" alt="인사말" /></a></li>
+<li><a href="kr/information/info02c68c.html?mid=104"><img src="/static/img/kor/layout/gnb0102.gif" alt="미션&비전" /></a></li>
+<li><a href="kr/information/info0399aa.html?mid=105"><img src="/static/img/kor/layout/gnb0103.gif" alt="관람안내" /></a></li>
+</ul>
+</li>
+<li>
+<a href="exhibitionsc959.html?mid=107"><img src="/static/img/kor/layout/gnb02.gif" alt="Exhibition" /></a>
+<ul class="depth2">
+<li><a href="exhibitions14cc.html?mid=108"><img src="/static/img/kor/layout/gnb0201.gif" alt="현재전시" /></a></li>
+<li><a href="exhibitionsbf0a.html?mt=pastyear&amp;mid=110"><img src="/static/img/kor/layout/gnb0202.gif" alt="지난전시" /></a></li>
+</ul>
+</li>
+<li>
+<a href="collection2959.html?mt=collection_list&amp;nls_lang=kr&amp;mid=113"><img src="/static/img/kor/layout/gnb03.gif" alt="collection" /></a>
+<ul class="depth2">
+<li><a href="collection687e.html?mt=collection_list&amp;nls_lang=kr&amp;mid=114"><img src="/static/img/kor/layout/gnb0301.gif" alt="대표 소장품" /></a></li>
+</ul>
+</li>
+
+<li  class="on">
+<a href="board79b0.html?mid=120"><img src="/static/img/kor/layout/gnb05.gif" alt="Support" /></a>
+<ul class="depth2">
+<li class="on"><a href="boardbdec.html?mid=121"><img src="/static/img/kor/layout/gnb0501.gif" alt="공지사항" /></a></li>
+<li><a href="boardb42f.html?seq=2&amp;mid=122"><img src="/static/img/kor/layout/gnb0502.gif" alt="FAQ" /></a></li>
+</ul>
+</li>
+
+	</ul>
+</div>
+
+
+		<!--// lnb(local navigation bar) -->
+		
+		<!-- contents -->
+		
+
+
+
+
+
+
+
+
+
+
+
+		
+
+<script type="text/javascript">
+//<![CDATA[
+
+	j$(document).ready(function(){
+
+		//검색
+		j$('#bbs_list_serch').click(function(){
+			j$('#mt').val('list');
+			j$('#cp').val('');
+			j$('#pgrp').val('');
+			j$('form[name=board_frm]').submit();
+		});
+	});
+
+	function JS_View(seq1){
+		j$('#seq1').val(seq1);
+		j$('#mt').val('view');
+		j$('form[name=board_frm]').submit();
+	}
+
+	function JS_List(){
+		var f = document.board_frm;
+		f.mt.value = "list";
+		f.cp.value = "";
+		f.pgrp.value = "";
+		f.action = "/S91_010/S91_010010/front/board.do";
+		f.submit();
+//		j$('#mt').val('list');
+//		j$('#cp').val('');
+//		j$('#pgrp').val('');
+//		j$('form[name=board_frm]').submit();
+	}
+	
+	function goPage(cp, pgrp, keyword) {
+		j$('#cp').val(cp);
+		j$('#pgrp').val(pgrp);
+		//j$('#keyword').val(keyword);
+		j$('#mt').val('list');
+		j$('form[name=board_frm]').submit();
+	}
+
+	function pageUi(n) {
+		j$('#cp').val(n);
+		j$('#pgrp').val('1');
+		//j$('#keyword').val(keyword);
+		j$('#mt').val('list');
+		j$('form[name=board_frm]').submit();
+	}
+//]]>
+</script>
+
+<div id="contents">
+	<div class="cont-box">
+		<div class="title-wrap">
+			
+				<h1 id="p_title"><img src="/static/img/kor/title/h2_notice.gif" alt="공지사항" /></h1>
+				<p><img src="/static/img/kor/title/txt_notice.gif" alt="포스코 미술관 공지사항입니다." /></p>
+			
+		</div>
+
+			
+			 	<table class="board-list01" summary="번호, 제목, 날짜, 조회수, 첨부파일">
+				<caption>공지사항</caption>
+				<colgroup>
+					<col width="5.5%" />
+					<col width="*" />
+					<col width="14%" />
+					<col width="10%" />
+					<col width="7%" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col"><div><span class="blind">번호</span></div></th>
+						<th scope="col" class="con con2"><div><img src="/static/img/kor/contents/txt_bbs_notice01.gif" alt="제목" /></div></th>
+						<th scope="col"><div><span class="blind">날짜</span></div></th>
+						<th scope="col" class="con"><div><img src="/static/img/kor/contents/txt_bbs_notice02.gif" alt="조회" /></div></th>
+						<th scope="col"><div><span class="blind">첨부</span></div></th>
+					</tr>
+				</thead>
+				<tbody>
+			
+				
+							
+							<tr class="first-line">
+								<td class="num"><img src="/static/img/kor/sub/notice_bul.gif" alt="대표 공지사항" /></td>
+								<td class="con"><a href='javascript:JS_View("127");'>[포스코미술관 랜선아트투어] 11편 관람안내</a></td>
+								<td class="tag">2023-02-07</td>
+								<td class="tag">82</td>
+								<td class="file"></td>
+							</tr>
+				
+							<tr>
+								<td class="num">93</td>
+								<td class="con"><a href='javascript:JS_View("126");'>[포스코미술관 랜선아트투어] 10편 관람안내</a></td>
+								<td class="tag">2022-09-28</td>
+								<td class="tag">215</td>
+								<td class="file"></td>
+							</tr>
+				
+							<tr>
+								<td class="num">92</td>
+								<td class="con"><a href='javascript:JS_View("125");'>[포스코미술관 랜선아트투어] 9편 관람안내</a></td>
+								<td class="tag">2022-08-03</td>
+								<td class="tag">112</td>
+								<td class="file"></td>
+							</tr>
+				
+							<tr>
+								<td class="num">91</td>
+								<td class="con"><a href='javascript:JS_View("124");'>임시 휴관(7.22) 안내</a></td>
+								<td class="tag">2022-07-20</td>
+								<td class="tag">66</td>
+								<td class="file"></td>
+							</tr>
+				
+							<tr>
+								<td class="num">90</td>
+								<td class="con"><a href='javascript:JS_View("123");'>전시기간 연장 안내(~8.5.금)</a></td>
+								<td class="tag">2022-07-18</td>
+								<td class="tag">173</td>
+								<td class="file"></td>
+							</tr>
+				
+							<tr>
+								<td class="num">89</td>
+								<td class="con"><a href='javascript:JS_View("122");'>6/28/화-6/29/수 휴관일 안내 </a></td>
+								<td class="tag">2022-06-22</td>
+								<td class="tag">61</td>
+								<td class="file"></td>
+							</tr>
+				
+							<tr>
+								<td class="num">88</td>
+								<td class="con"><a href='javascript:JS_View("121");'>임시 휴관(4.22) 안내</a></td>
+								<td class="tag">2022-04-20</td>
+								<td class="tag">47</td>
+								<td class="file"></td>
+							</tr>
+				
+							<tr>
+								<td class="num">87</td>
+								<td class="con"><a href='javascript:JS_View("120");'>[포스코미술관 랜선아트투어] 8편 관람안내</a></td>
+								<td class="tag">2022-03-08</td>
+								<td class="tag">100</td>
+								<td class="file"></td>
+							</tr>
+				
+							<tr>
+								<td class="num">86</td>
+								<td class="con"><a href='javascript:JS_View("119");'>선거일(3/9) 휴관 안내</a></td>
+								<td class="tag">2022-03-08</td>
+								<td class="tag">23</td>
+								<td class="file"></td>
+							</tr>
+				
+							<tr>
+								<td class="num">85</td>
+								<td class="con"><a href='javascript:JS_View("117");'>[포스코미술관 랜선아트투어] 7편 관람안내</a></td>
+								<td class="tag">2021-10-06</td>
+								<td class="tag">255</td>
+								<td class="file"></td>
+							</tr>
+				
+			</tbody>
+		</table>
+			<div class="clfix search-select">
+				<form name="board_frm" method="post" action="http://www.poscoartmuseum.org/S91_010/S91_010010/front/board.do">
+				<input type="hidden" name="mt" id="mt">
+				<input type="hidden" name="seq" id="seq" value="1" />
+				<input type="hidden" name="seq1" id="seq1" />
+				<input type="hidden" name="cp" id="cp" value="1" />
+				<input type="hidden" name="pgrp" id="pgrp" value="1" />
+				<input type="hidden" name="key_type" id="key_type" value="" />
+				<input type="hidden" name='mid' id='mid' value="121">
+		
+					<div class="fl">
+						<select name="" class="selectyze">
+						    <option value="" selected="selected">전체</option>
+						</select>
+					</div>
+					<div class="fr wrap-search">
+						<label for="keyword" class="fl"><span class="blind">질문 검색</span></label>
+						<input type="text" id="keyword" name="keyword"  value="" class="search-input fl fsn" />
+						<button name="bbs_list_serch" id="bbs_list_serch" class="btn-icon fl"><span class="blind">검색</span></button>
+					</div>
+		
+				</form>
+			</div>
+		<div class="paging">
+<a class="prev" href='javascript:pageUi(1);'><img src='/static/img/kor/btn/btn_bbs_prev.gif' alt='이전 페이지 보기'></a><a class="on" href='javascript:pageUi(1);'>1</a>
+<a href='javascript:pageUi(2)'>2</a>
+<a href='javascript:pageUi(3)'>3</a>
+<a href='javascript:pageUi(4)'>4</a>
+<a href='javascript:pageUi(5)'>5</a>
+<a href='javascript:pageUi(6)'>6</a>
+<a href='javascript:pageUi(7)'>7</a>
+<a href='javascript:pageUi(8)'>8</a>
+<a href='javascript:pageUi(9)'>9</a>
+<a href='javascript:pageUi(10)'>10</a>
+<a class="next" href='javascript:pageUi(2);'><img src='/static/img/kor/btn/btn_bbs_next.gif' alt='다음 페이지 보기'></a></div>
+
+	</div>
+</div>
+
+			
+		<!-- //contents -->
+		
+		<!-- quickNav -->
+		
+
+
+
+
+<div id="quickNav">
+	<h3 class="blind">퀵메뉴</h3>
+	<ul>
+		<li><a href="boardbdec.html?mid=121"><img src="/static/img/kor/layout/quick01.gif" alt="Notice" /></a></li>
+	
+		<li><a href="kr/information/info0399aa.html?mid=105"><img src="/static/img/kor/layout/quick04.gif" alt="Location" /></a></li>
+	</ul>
+</div>
+		<!-- //quickNav -->
+	
+	</div>
+	<!-- // container -->
+	
+	<!-- footer -->
+	
+
+
+<script type="text/javascript">
+function agree(){
+	WindowOpenCenter('kr/information/agree.html','agree','650','635');
+}
+</script>
+<div id="footer">
+	<p class="copyright"><img src="/static/img/kor/layout/copyright.gif" alt="Copyright(c) 2013 posco art museum. All right reserved" /></p>
+	<div class="foot-nav"><a href="javascript:agree();" title="개인정보취급방침"><img src="/static/img/kor/layout/btn_priv.gif" alt="개인정보취급방침" /></a></div>
+	<div class="family-site">
+		<!-- a href="http://www.posco.co.kr/" target="_blank" title="새창 - 포스코 사이트"><img src="/img/kor/layout/familysite_off.gif" alt="POSCO Site로 이동" /></a-->
+	</div>
+</div>
+	<!-- //footer -->
+</div>
+
+</body>
+
+<!-- Mirrored from www.poscoartmuseum.org/S91_010/S91_010010/front/board.do?mid=121 by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Feb 2023 12:36:51 GMT -->
+</html>
