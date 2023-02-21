@@ -18,6 +18,36 @@
         <result property="update_date" column="update_date"></result>
     </resultMap>
 
+    <select id="getCollectionList" parameterType="java.util.HashMap" resultMap="collection">
+        select
+            cm.collection_id,
+            cm.collection_name,
+            cm.price,
+            cm.author,
+            cm.location,
+            cm.collection_size,
+            cm.year_of_manufacture,
+            cm.material,
+            cm.create_date,
+            cm.update_date,
+            ci.image_id,
+            ci.collection_name,
+            ci.save_name,
+            ci.origin_name
+        from
+            (select
+                *
+            from
+                collection_mst
+            where
+                1 = 1
+            <if test='searchText != null || searchText != ""'>
+                and name like concat ('%', #{searchText}, '%')
+            </if>
+            limit #{index}, 10) cm
+            left outer join collection_image ci ON(ci.collection_id = cm.id)
+    </select>
+
     <select id="findCollectionByCollectionName" resultType="com.korit.museum.entity.CollectionMst">
         select
             collection_id as collectionId,
@@ -35,7 +65,7 @@
     </select>
 
     <insert id="saveCollection"
-            parameterType="com.korit.museum.web.dto.CollectionReqDto"
+            parameterType="com.korit.museum.web.dto.admin.CollectionAdditionReqDto"
             useGeneratedKeys="true"
             keyProperty="id">
         insert into collection_mst
@@ -44,7 +74,39 @@
         #{material}, now(), now())
     </insert>
 
-    <update id="updateCollectionByCollectionCode" parameterType="com.korit.museum.web.dto.CollectionReqDto">
+    <insert id="saveImageFiles" parameterType="java.util.List">
+        insert into
+            collection_image
+        values
+        <foreach item="file" collection="list" separator=",">
+            (
+                0,
+                #{file.collection_name},
+                #{file.save_name},
+                #{file.origin_name},
+                now(),
+                now()
+            )
+        </foreach>
+    </insert>
+
+    <update id="setCollection" parameterType="com.korit.museum.entity.CollectionMst">
+        update
+            collection_mst
+        set
+            collection_name = #{collectionName},
+            price = #{price},
+            author = #{author},
+            location = #{location},
+            collection_size = #{collectionSize},
+            year_of_manufacture = #{year_of_Manufacture},
+            material = #{material},
+            update_date = now()
+        where
+            collection_id = #{collectionId}
+    </update>
+
+    <update id="updateCollectionByCollectionCode" parameterType="com.korit.museum.web.dto.admin.CollectionAdditionReqDto">
         update collection_mst
         set
             collection_name = #{collectionName},
@@ -56,14 +118,6 @@
         where
             collection_code = #{collection_Code}
     </update>
-
-    <insert id="registerCollectionImages" parameterType="List">
-        insert into collection_images
-        values
-            <foreach collection="List" item="file" separator=",">
-                (0, #{file,collectionCode}, #{file,saveName}, #{file,originName})
-            </foreach>
-    </insert>
 
     <select id="findCollectionImageAll" resultType="com.korit.museum.entity.CollectionImage">
         select
