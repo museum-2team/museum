@@ -2,6 +2,12 @@ server:
   port: 8000
 
 spring:
+
+  security:
+    user:
+      name: admin
+      password: 1234
+
   servlet:
     multipart:
       max-file-size: 200MB
