@@ -1,11 +1,13 @@
-package com.korit.museum.web.admin;
+package com.korit.museum.web.api.admin;
 
 import com.korit.museum.aop.annotation.ValidAspect;
 import com.korit.museum.entity.PaintingImage;
 import com.korit.museum.entity.PaintingMst;
 import com.korit.museum.service.PaintingService;
+import com.korit.museum.web.dto.CMRespDto;
 import com.korit.museum.web.dto.DeletePaintingsReqDto;
 import com.korit.museum.web.dto.PaintingReqDto;
+import com.korit.museum.web.dto.SearchPaintingReqDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,10 +35,10 @@ public class PaintingApi {
 
     @ValidAspect
     @GetMapping("/paintings")
-    public ResponseEntity<CMRespDto<List<PaintingMst>>> searchPainting(@Valid SearchReqDto searchReqDto, BindingResult bindingResult){
+    public ResponseEntity<CMRespDto<List<PaintingMst>>> searchPainting(@Valid SearchPaintingReqDto searchPaintingReqDto, BindingResult bindingResult){
         return ResponseEntity
                 .ok()
-                .body(new CMRespDto<>(HttpStatus.OK.value(), "Successfully", paintingService.searchPainting(searchReqDto)));
+                .body(new CMRespDto<>(HttpStatus.OK.value(), "Successfully", paintingService.searchPainting(searchPaintingReqDto)));
     }
 
     @ValidAspect

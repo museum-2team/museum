@@ -1,8 +1,8 @@
-package com.korit.museum.service.admin;
+package com.korit.museum.service;
 
-import com.korit.museum.web.dto.admin.CollectionAdditionReqDto;
-import com.korit.museum.web.dto.admin.CollectionListRespDto;
-import com.korit.museum.web.dto.admin.CollectionModificationReqDto;
+import com.korit.museum.web.dto.CollectionAdditionReqDto;
+import com.korit.museum.web.dto.CollectionListRespDto;
+import com.korit.museum.web.dto.CollectionModificationReqDto;
 
 import java.util.List;
 

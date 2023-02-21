@@ -1,4 +1,4 @@
-package com.korit.museum.web.dto.admin;
+package com.korit.museum.web.dto;
 
 import com.korit.museum.entity.CollectionMst;
 import lombok.Data;
@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Data
-public class CollectionModificationReqDto {
+public class CollectionAdditionReqDto {
 
     @NotBlank(message = "빈 값일 수 없습니다.")
     private String collectionName;
@@ -32,10 +32,9 @@ public class CollectionModificationReqDto {
     @NotBlank(message = "빈 값일 수 없습니다.")
     private String material;
 
-    private List<String> deleteImgFiles;
     private List<MultipartFile> files;
 
-    public CollectionMst toCollectionEntity(){
+    public CollectionMst toCollectionMstEntity(){
         return CollectionMst.builder()
                 .collectionName(collectionName)
                 .price(price)
@@ -46,4 +45,5 @@ public class CollectionModificationReqDto {
                 .material(material)
                 .build();
     }
+
 }

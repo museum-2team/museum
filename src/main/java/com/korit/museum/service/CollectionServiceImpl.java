@@ -1,12 +1,12 @@
-package com.korit.museum.service.admin;
+package com.korit.museum.service;
 
 import com.korit.museum.entity.CollectionImage;
 import com.korit.museum.entity.CollectionMst;
 import com.korit.museum.exception.CustomInternalServerErrorException;
 import com.korit.museum.repository.CollectionRepository;
-import com.korit.museum.web.dto.admin.CollectionAdditionReqDto;
-import com.korit.museum.web.dto.admin.CollectionListRespDto;
-import com.korit.museum.web.dto.admin.CollectionModificationReqDto;
+import com.korit.museum.web.dto.CollectionAdditionReqDto;
+import com.korit.museum.web.dto.CollectionListRespDto;
+import com.korit.museum.web.dto.CollectionModificationReqDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

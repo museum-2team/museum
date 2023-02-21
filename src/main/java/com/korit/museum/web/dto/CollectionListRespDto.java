@@ -1,4 +1,4 @@
-package com.korit.museum.web.dto.admin;
+package com.korit.museum.web.dto;
 
 import com.korit.museum.entity.CollectionImage;
 import lombok.AllArgsConstructor;

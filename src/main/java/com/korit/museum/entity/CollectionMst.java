@@ -1,6 +1,6 @@
 package com.korit.museum.entity;
 
-import com.korit.museum.web.dto.admin.CollectionListRespDto;
+import com.korit.museum.web.dto.CollectionListRespDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-import static com.fasterxml.jackson.databind.type.LogicalType.Collection;
 
 @Builder
 @NoArgsConstructor

@@ -17,6 +17,6 @@ public class SearchService {
 
     public List<SearchPainting> getSearchPaintings(SearchPaintingReqDto searchPaintingReqDto){
         searchPaintingReqDto.setIndex();
-        return searchRepository.userSearchPaintings(searchPaintingReqDto);
+        return searchRepository.userSearchPainting(searchPaintingReqDto);
     }
 }

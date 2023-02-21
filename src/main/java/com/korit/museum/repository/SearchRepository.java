@@ -8,5 +8,5 @@ import java.util.List;
 
 @Mapper
 public interface SearchRepository {
-    public List<SearchPainting> userSearchPaintings(SearchPaintingReqDto searchPaintingReqDto);
+    public List<SearchPainting> userSearchPainting(SearchPaintingReqDto searchPaintingReqDto);
 }

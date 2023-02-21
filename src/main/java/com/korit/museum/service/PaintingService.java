@@ -6,6 +6,7 @@ import com.korit.museum.exception.CustomValidationException;
 import com.korit.museum.repository.PaintingRepository;
 import com.korit.museum.web.dto.DeletePaintingsReqDto;
 import com.korit.museum.web.dto.PaintingReqDto;
+import com.korit.museum.web.dto.SearchPaintingReqDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -34,9 +35,9 @@ public class PaintingService {
         return result;
     }
 
-    public List<PaintingMst> searchPainting(SearchReqDto searchReqDto) {
-        searchReqDto.setIndex();
-        return paintingRepository.searchPainting(searchReqDto);
+    public List<PaintingMst> searchPainting(SearchPaintingReqDto searchPaintingReqDto) {
+        searchPaintingReqDto.setIndex();
+        return paintingRepository.searchPainting(searchPaintingReqDto);
     }
 
     public void registerPainting(PaintingReqDto paintingReqDto){

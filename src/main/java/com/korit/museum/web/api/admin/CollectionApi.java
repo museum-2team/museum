@@ -2,9 +2,10 @@ package com.korit.museum.web.api.admin;
 
 
 import com.korit.museum.aop.annotation.ValidAspect;
-import com.korit.museum.service.admin.CollectionServiceImpl;
-import com.korit.museum.web.dto.admin.CollectionAdditionReqDto;
-import com.korit.museum.web.dto.admin.CollectionModificationReqDto;
+import com.korit.museum.service.CollectionServiceImpl;
+import com.korit.museum.web.dto.CMRespDto;
+import com.korit.museum.web.dto.CollectionAdditionReqDto;
+import com.korit.museum.web.dto.CollectionModificationReqDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.Nullable;

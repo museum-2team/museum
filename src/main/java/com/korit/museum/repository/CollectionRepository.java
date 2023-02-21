@@ -2,7 +2,6 @@ package com.korit.museum.repository;
 
 import com.korit.museum.entity.CollectionImage;
 import com.korit.museum.entity.CollectionMst;
-import com.korit.museum.web.dto.admin.CollectionAdditionReqDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
