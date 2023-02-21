@@ -12,6 +12,8 @@ public interface PaintingRepository {
 
     public PaintingMst findPaintingByPaintingCode (String paintingCode);
 
+    public List<PaintingMst> searchPainting(SearchReqDto searchReqDto);
+
     public int savePainting (PaintingReqDto paintingReqDto);
 
     public int updatePaintingByPaintingCode (PaintingReqDto paintingReqDto);
@@ -22,7 +24,10 @@ public interface PaintingRepository {
     public PaintingImage findPaintingByImageId (int imageId);
     public PaintingImage findPaintingByImageCode (String imageCode);
 
+    public int deletePainting(String paintingCode);
 
+    public int deletePaintings(List<Integer> userIds);
 
+    public int deletePaintingImage(int imageId);
 
 }

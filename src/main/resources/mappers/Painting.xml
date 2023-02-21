@@ -94,5 +94,33 @@
             painting_code = #{paintingCode}
     </update>
 
+    <delete id="deletePainting">
+        delete
+        from
+            painting_mst
+        where
+            painting_code = #{paintingCode}
+    </delete>
+
+    <delete id="deletePaintings" parameterType="list">
+        delete
+        from
+            painting_mst
+        where
+            painting_id in
+            <foreach collection="list" item="paintingId" open="(" close=")" separator=",">
+                #{paintingId}
+            </foreach>
+    </delete>
+
+    <delete id="deletePaintingImage">
+        delete
+        from
+            painting_image
+        where
+            image_id = #{imageId}
+    </delete>
+
+
 
 </mapper>
