@@ -3,7 +3,6 @@ package com.korit.museum.web.api.admin;
 
 import com.korit.museum.aop.annotation.ValidAspect;
 import com.korit.museum.service.admin.CollectionServiceImpl;
-import com.korit.museum.web.dto.CMRespDto;
 import com.korit.museum.web.dto.admin.CollectionAdditionReqDto;
 import com.korit.museum.web.dto.admin.CollectionModificationReqDto;
 import lombok.RequiredArgsConstructor;
