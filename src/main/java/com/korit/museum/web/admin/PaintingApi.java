@@ -4,7 +4,6 @@ import com.korit.museum.aop.annotation.ValidAspect;
 import com.korit.museum.entity.PaintingImage;
 import com.korit.museum.entity.PaintingMst;
 import com.korit.museum.service.PaintingService;
-import com.korit.museum.web.dto.CMRespDto;
 import com.korit.museum.web.dto.DeletePaintingsReqDto;
 import com.korit.museum.web.dto.PaintingReqDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
