@@ -6,12 +6,18 @@
     min-height: 750px;
     margin: 0 auto;
     
+    
 }
 .main-collection-titel{
-    width:160px;
+    font-size: 40px;
+    
+    height: auto;
+    width:auto;
     margin: auto;
+    text-align: center;
     
     justify-content: flex-end;
+    color: black;
     
 
 }
@@ -19,6 +25,7 @@
     width: 221px;
 }
 .collection-search{
+    margin-bottom:10px ;
     
     display: flex;
 }
