@@ -27,10 +27,10 @@ public class CollectionService {
     @Autowired
     private CollectionRepository collectionRepository;
 
-    public Map<String, Object> getCollectionAndImage(String collectionCode){
+    public Map<String, Object> getCollectionAndImage(String collectionName){
         Map<String, Object> result = new HashMap<>();
-        result.put("collectionMst", collectionRepository.findCollectionByCollectionName(collectionCode));
-        result.put("collectionImage", collectionRepository.findCollectionImageByCollectionCode(collectionCode));
+        result.put("collectionMst", collectionRepository.findCollectionByCollectionName(collectionName));
+        result.put("collectionImage", collectionRepository.findCollectionImageByCollectionCode(collectionName));
 
         return result;
 
@@ -41,8 +41,8 @@ public class CollectionService {
         collectionRepository.saveCollection(collectionReqDto);
     }
 
-    private void duplicateCollectionCode(String collectionCode){
-        CollectionMst collectionMst = collectionRepository.findCollectionByCollectionName(collectionCode);
+    private void duplicateCollectionCode(String collectionName){
+        CollectionMst collectionMst = collectionRepository.findCollectionByCollectionName(collectionName);
         if(collectionMst != null){
             Map<String, String> errorMap = new HashMap<>();
             errorMap.put("collectionName", "이미 존재하는 컬렉션입니다.");
@@ -55,7 +55,7 @@ public class CollectionService {
         collectionRepository.deleteCollections(deleteCollectionsReqDto.getUserIds());
     }
 
-    public void registerCollectionImages(String CollecitonCode, List<MultipartFile> files){
+    public void registerCollectionImages(String collecitonName, List<MultipartFile> files){
         if(files.size() < 1) {
             Map<String, String> errorMap = new HashMap<String, String>();
             errorMap.put("files", "이미지를 선택해주세요.");
@@ -68,7 +68,7 @@ public class CollectionService {
         files.forEach(file -> {
             String originFileName = file.getOriginalFilename();
             String extension = originFileName.substring(originFileName.lastIndexOf(""));
-            String tempFileName = UUID.randomUUID().toString().replaceAll("-","");
+            String tempFileName = UUID.randomUUID().toString().replaceAll("-","") + extension;
 
             Path uploadPath = Paths.get(filepath + "collections/" + tempFileName);
 
@@ -84,7 +84,7 @@ public class CollectionService {
             }
 
             CollectionImage collectionImage = CollectionImage.builder()
-                    .collectionCode(collectionCode)
+                    .collectionName(collecitonName)
                     .saveName(tempFileName)
                     .originName(originFileName)
                     .build();
@@ -108,7 +108,7 @@ public class CollectionService {
             throw new CustomValidationException(errorMap);
         }
 
-        if(collectionRepository.deleteCollection(imageId) > 0) {
+        if(collectionRepository.deleteCollectionImage(imageId) > 0) {
             File file = new File(filepath + "collection/" + collectionImage.getSaveName());
             if(file.exists()){
                 file.delete();

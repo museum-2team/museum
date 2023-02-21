@@ -11,6 +11,9 @@ public class CollectionReqDto {
     private String collectionName;
 
     @NotBlank
+    private int price;
+
+    @NotBlank
     private String author;
 
     @NotBlank

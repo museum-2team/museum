@@ -16,6 +16,7 @@ public class CollectionMst {
     private int collectionId;
 
     private String collectionName;
+    private int price;
     private String author;
     private String location;
     private String collectionSize;

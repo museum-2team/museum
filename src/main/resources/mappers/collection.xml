@@ -5,11 +5,25 @@
 
 <mapper namespace="com.korit.museum.repository.CollectionRepository">
 
+    <resultMap id="collection" type="com.korit.museum.entity.CollectionMst">
+        <result property="collectionId" column="collection_id"></result>
+        <result property="collectionName" column="collection_name"></result>
+        <result property="price" column="price"></result>
+        <result property="author" column="author"></result>
+        <result property="location" column="location"></result>
+        <result property="collectionSize" column="collection_size"></result>
+        <result property="year_of_Manufacture" column="year_of_manufacture"></result>
+        <result property="material" column="material"></result>
+        <result property="create_date" column="create_date"></result>
+        <result property="update_date" column="update_date"></result>
+    </resultMap>
+
     <select id="findCollectionByCollectionName" resultType="com.korit.museum.entity.CollectionMst">
         select
             collection_id as collectionId,
             collection_name as collectionName,
-            authoer,
+            price,
+            author,
             location,
             collection_size as collectionSize,
             year_of_manufacture as year_of_Manufacture,
@@ -20,17 +34,21 @@
             collection_name = #{collectionName};
     </select>
 
-    <insert id="saveCollection" parameterType="com.korit.museum.web.dto.CollectionReqDto">
+    <insert id="saveCollection"
+            parameterType="com.korit.museum.web.dto.CollectionReqDto"
+            useGeneratedKeys="true"
+            keyProperty="id">
         insert into collection_mst
         values
-            (0, #{collectionName}, #{author}, #{location}, #{collectionSize}, #{year_of_Manufacture},
-        #{material}, #{create_date}, #{update_date}
+            (0, #{collectionName}, #{price}, #{author}, #{location}, #{collectionSize}, #{year_of_Manufacture},
+        #{material}, now(), now())
     </insert>
 
     <update id="updateCollectionByCollectionCode" parameterType="com.korit.museum.web.dto.CollectionReqDto">
         update collection_mst
         set
             collection_name = #{collectionName},
+            <if test="price != null and price != ''"> price = #{price},</if>
             <if test="author != null and author != ''"> author = #{author},</if>
             <if test="location != null and location != ''"> location = #{location},</if>
             <if test="year_of_Manufacture != null">year_of_manufacture = #{year_of_manufacture}</if>
