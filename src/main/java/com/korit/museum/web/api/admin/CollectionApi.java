@@ -43,8 +43,8 @@ public class CollectionApi {
     }
 
     @DeleteMapping("/collection/{collectionId}")
-    public ResponseEntity<?> deleteCollection(@PathVariable int collectionId) throws Exception {
-        return ResponseEntity.ok((new CMRespDto<>(1, "Successfully", collectionService.deleteCollection(collectionId))));
+    public ResponseEntity<?> deleteCollection(@PathVariable String collectionName) throws Exception {
+        return ResponseEntity.ok((new CMRespDto<>(1, "Successfully", collectionService.deleteCollection(collectionName))));
     }
 
 

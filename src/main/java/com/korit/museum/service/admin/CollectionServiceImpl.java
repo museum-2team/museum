@@ -110,7 +110,7 @@ public class CollectionServiceImpl implements CollectionService{
             boolean deleteStatus = true;
 
             if (collectionModificationReqDto.getFiles() != null){
-                insertStatus = insertCollectionImg(collectionModificationReqDto.getFiles(), collectionModificationReqDto getName());
+                insertStatus = insertCollectionImg(collectionModificationReqDto.getFiles(), collectionModificationReqDto.getCollectionName());
             }
         }
 
@@ -125,63 +125,46 @@ public class CollectionServiceImpl implements CollectionService{
         return collectionRepository.saveImageFiles(collectionImages) > 0;
     }
 
-    @Override
-    public boolean deleteCollection(int collectionId) throws Exception {
-        return false;
+    private boolean deleteCollectionImg(List<String> deleteImageFiles, String collectionName) throws Exception{
+        boolean status = false;
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("collectionName", collectionName);
+        map.put("deleteImageFiles", deleteImageFiles);
+
+        int result = collectionRepository.deleteImageFiles(map);
+        if(result != 0){
+            deleteImageFiles.forEach(temp_name -> {
+                Path uploadPath = Paths.get(filepath + "/collection/" + temp_name);
+
+                File file = new File(uploadPath.toUri());
+                if(file.exists()) {
+                    file.delete();
+                }
+            });
+            status = true;
+        }
+
+        return status;
     }
 
-//    public Map<String, Object> getCollectionAndImage(String collectionName){
-//        Map<String, Object> result = new HashMap<>();
-//        result.put("collectionMst", collectionRepository.findCollectionByCollectionName(collectionName));
-//        result.put("collectionImage", collectionRepository.findCollectionImageByCollectionCode(collectionName));
-//
-//        return result;
-//
-//    }
+    @Override
+    public boolean deleteCollection(String collectionName) throws Exception {
+        List<CollectionImage> collectionImages = collectionRepository.getCollectionImageList(collectionName);
 
-//    public void registerCollection(CollectionAdditionReqDto collectionReqDto){
-//        duplicateCollectionCode(collectionReqDto.getCollectionName());
-//        collectionRepository.saveCollection(collectionReqDto);
-//    }
-//
-//    private void duplicateCollectionCode(String collectionName){
-//        CollectionMst collectionMst = collectionRepository.findCollectionByCollectionName(collectionName);
-//        if(collectionMst != null){
-//            Map<String, String> errorMap = new HashMap<>();
-//            errorMap.put("collectionName", "이미 존재하는 컬렉션입니다.");
-//
-//            throw new CustomValidationException(errorMap);
-//        }
-//    }
-//
-////    private void modifyCollection(CollectionAdditionReqDto deleteCollectionsReqDto){
-////        collectionRepository.deleteCollections(deleteCollectionsReqDto.getUserIds());
-////    }
-//
+        if(collectionRepository.deleteCollection(collectionName) > 0){
+            collectionImages.forEach(collectionImage -> {
+                Path uploadPath = Paths.get(filepath + "/collection/" + collectionImage.getSaveName());
 
-//
-//    public List<CollectionImage> getCollections(String collectionCode){
-//        return collectionRepository.findCollectionImageAll(collectionCode);
-//    }
-//
-//    public void  removeCollectionImage(int imageId){
-//        CollectionImage collectionImage = collectionRepository.findCollectionImageByImageId(imageId);
-//
-//        if(collectionImage == null){
-//            Map<String, String> errorMap = new HashMap<>();
-//            errorMap.put("error", "존재하지 않는 이미지 ID 입니다.");
-//
-//            throw new CustomValidationException(errorMap);
-//        }
-//
-//        if(collectionRepository.deleteCollectionImage(imageId) > 0) {
-//            File file = new File(filepath + "collection/" + collectionImage.getSaveName());
-//            if(file.exists()){
-//                file.delete();
-//            }
-//        }
-//    }
-
+                File file = new File(uploadPath.toUri());
+                if(file.exists()){
+                    file.delete();
+                }
+            });
+            return true;
+        }
+        return false;
+    }
 }
 
 

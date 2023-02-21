@@ -1,6 +1,7 @@
 package com.korit.museum.web.dto.admin;
 
 import com.korit.museum.entity.CollectionMst;
+import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.Max;
@@ -8,6 +9,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
+@Data
 public class CollectionModificationReqDto {
 
     @NotBlank(message = "빈 값일 수 없습니다.")

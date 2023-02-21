@@ -14,6 +14,6 @@ public interface CollectionService {
 
     public boolean updateCollection(CollectionModificationReqDto collectionModificationReqDto) throws Exception;
 
-    public boolean deleteCollection(int collectionId) throws Exception;
+    public boolean deleteCollection(String collectionName) throws Exception;
 
 }

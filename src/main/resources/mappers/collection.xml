@@ -5,6 +5,13 @@
 
 <mapper namespace="com.korit.museum.repository.CollectionRepository">
 
+    <resultMap id="collectionImagesFiles" type="com.korit.museum.entity.CollectionImage">
+        <result property="imageId" column="image_id"></result>
+        <result property="collectionName" column="collection_name"></result>
+        <result property="originName" column="origin_name"></result>
+        <result property="saveName" column="save_name"></result>
+    </resultMap>
+
     <resultMap id="collection" type="com.korit.museum.entity.CollectionMst">
         <result property="collectionId" column="collection_id"></result>
         <result property="collectionName" column="collection_name"></result>
@@ -16,7 +23,31 @@
         <result property="material" column="material"></result>
         <result property="create_date" column="create_date"></result>
         <result property="update_date" column="update_date"></result>
+        <collection property="collectionImagesFiles" javaType="list" resultMap="collectionImagesFiles"></collection>
     </resultMap>
+
+    <insert id="saveCollection"
+            parameterType="com.korit.museum.entity.CollectionMst"
+            useGeneratedKeys="true"
+            keyProperty="id">
+        insert into
+            collection_mst
+            (select
+                0,
+                #{collectionName},
+                #{price},
+                #{author},
+                #{location},
+                #{collectionSize},
+                #{year_of_Manufacture},
+                #{material},
+                now(),
+                now()
+            from
+                collection_mst
+        );
+
+    </insert>
 
     <select id="getCollectionList" parameterType="java.util.HashMap" resultMap="collection">
         select
@@ -32,8 +63,8 @@
             cm.update_date,
             ci.image_id,
             ci.collection_name,
-            ci.save_name,
-            ci.origin_name
+            ci.origin_name,
+            ci.save_name
         from
             (select
                 *
@@ -48,32 +79,6 @@
             left outer join collection_image ci ON(ci.collection_id = cm.id)
     </select>
 
-    <select id="findCollectionByCollectionName" resultType="com.korit.museum.entity.CollectionMst">
-        select
-            collection_id as collectionId,
-            collection_name as collectionName,
-            price,
-            author,
-            location,
-            collection_size as collectionSize,
-            year_of_manufacture as year_of_Manufacture,
-            material
-        from
-            collection_mst
-        where
-            collection_name = #{collectionName};
-    </select>
-
-    <insert id="saveCollection"
-            parameterType="com.korit.museum.web.dto.admin.CollectionAdditionReqDto"
-            useGeneratedKeys="true"
-            keyProperty="id">
-        insert into collection_mst
-        values
-            (0, #{collectionName}, #{price}, #{author}, #{location}, #{collectionSize}, #{year_of_Manufacture},
-        #{material}, now(), now())
-    </insert>
-
     <insert id="saveImageFiles" parameterType="java.util.List">
         insert into
             collection_image
@@ -82,8 +87,8 @@
             (
                 0,
                 #{file.collection_name},
-                #{file.save_name},
                 #{file.origin_name},
+                #{file.save_name},
                 now(),
                 now()
             )
@@ -106,78 +111,36 @@
             collection_id = #{collectionId}
     </update>
 
-    <update id="updateCollectionByCollectionCode" parameterType="com.korit.museum.web.dto.admin.CollectionAdditionReqDto">
-        update collection_mst
-        set
-            collection_name = #{collectionName},
-            <if test="price != null and price != ''"> price = #{price},</if>
-            <if test="author != null and author != ''"> author = #{author},</if>
-            <if test="location != null and location != ''"> location = #{location},</if>
-            <if test="year_of_Manufacture != null">year_of_manufacture = #{year_of_manufacture}</if>
-            material = #{material}
-        where
-            collection_code = #{collection_Code}
-    </update>
-
-    <select id="findCollectionImageAll" resultType="com.korit.museum.entity.CollectionImage">
+    <select id="getCollectionImageList" parameterType="String" resultMap="collectionImagesFiles">
         select
-            image_id as imageId,
-            collection_code as collectionCode,
-            save_name as saveName,
-            origin_name as originName
+            image_id,
+            collection_name,
+            origin_name,
+            save_name
         from
             collection_image
         where
-            collection_code = #{collectionCode}
+            collection_name = #{collectionName}
     </select>
 
-    <select id="findCollectionImageByImageId" resultType="com.korit.museum.entity.CollectionImage">
-        select
-            image_id as imageId,
-            collection_code as collectionCode,
-            save_name as saveName,
-            origin_name as originName
+    <delete id="deleteImageFiles" parameterType="hashmap">
+        delete
         from
             collection_image
         where
-            collection_code = #{collectionCode}
-    </select>
+            image_id = #{imageId}
+        and save_name in
+        <foreach collection="deleteImageFiles" item="save_name" open="(" separator="," close=")">
+            #{saveName}
+        </foreach>
+    </delete>
 
-    <select id="findCollectionImageByCollectionCode" resultType="com.korit.museum.entity.CollectionImage">
-        select
-            image_id as imageId,
-            collection_code as collectionCode,
-            save_name as saveName,
-            origin_name as originName
-        from
-            collection_image
-        where
-            collection_code = #{collectionCode}
-
-    </select>
-
-    <delete id="deleteCollection">
+    <delete id="deleteCollection" parameterType="String">
         delete
         from
             collection_mst
         where
-            collection_code = #{collectionCode}
-    </delete>
-
-    <delete id="deleteCollections">
-        delete
-        from
-            collection_mst
-        where
-            collection_code = #{collectionCode}
-    </delete>
-
-    <delete id="deleteCollectionImage">
-        delete
-        from
-            collection_image
-        where
-            image_id = #{imageId};
+            collection_name = #{collectionName}
     </delete>
 
 </mapper>

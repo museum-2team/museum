@@ -18,22 +18,12 @@ public interface CollectionRepository {
 
     public int setCollection(CollectionMst collectionMst) throws Exception;
 
+    public List<CollectionImage> getCollectionImageList(String collectionName) throws Exception;
 
-    public CollectionMst findCollectionByCollectionName(String collectionName);
+    public int deleteImageFiles(Map<String, Object> map) throws Exception;
+
 
     public int saveCollection(CollectionMst collectionMst);
 
-    public int updateCollectionByCollectionCode(CollectionAdditionReqDto collectionReqDto);
-
     public int deleteCollection(String collectionName);
-
-    public int deleteCollections(List<Integer> userIds);
-
-    public List<CollectionImage> findCollectionImageAll(String collectionName);
-
-    public CollectionImage findCollectionImageByImageId(int imageId);
-
-    public CollectionImage findCollectionImageByCollectionCode(String collectionName);
-
-    public int deleteCollectionImage(int imageId);
 }
