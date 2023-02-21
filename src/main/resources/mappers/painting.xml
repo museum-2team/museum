@@ -4,6 +4,46 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.korit.museum.repository.PaintingRepository">
 
+    <select id="searchPainting" parameterType="com.korit.museum.web.dto.SearchPaintingReqDto" resultType="com.korit.museum.entity.PaintingMst">
+        select
+            pm.painting_id as paintingId,
+            pm.painting_code as paintingCode,
+
+            pm.painting_title_name as paintingTitleName,
+            pm.viewing_time as viewingTime,
+            pm.exhibition_works as exhibitionWorks,
+            pm.exhibition_period as exhibitionPeriod,
+
+            pm.painting_name as paintingName,
+            author,
+            pm.painting_size as paintingSize,
+            pm.year_of_manufacture as year_of_Manufacture,
+            material
+        from
+            painting_mst pm
+        where
+            1 = 1
+        <if test='searchValue != null and searchValue != null ""'>
+            and(
+                pm.painting_name like CONCAT('%', #{searchValue}, '%')
+            or pm.author like CONCAT('%', #{searchValue}, '%')
+            or pm.year_of_manufacture like CONCAT('%', #{searchValue}, '%')
+            )
+        </if>
+
+        order by
+        <choose>
+            <when test='order ==  "paintingName'>pm.painting_name,</when>
+            <when test='order ==  "author"'>pm.author,</when>
+            <when test='order ==  "dateAsc"'>pm.year_of_manufacture,</when>
+            <when test='order == "dateDesc"'>pm.year_of_manufacture desc,</when>
+        </choose>
+            pm.painting_id
+        <if test='limit == "Y"'>
+            limit #{index}
+        </if>
+
+    </select>
 
     <select id="findPaintingByPaintingCode" resultType="com.korit.museum.entity.PaintingMst">
         select

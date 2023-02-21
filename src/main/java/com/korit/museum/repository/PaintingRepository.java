@@ -13,7 +13,7 @@ public interface PaintingRepository {
 
     public PaintingMst findPaintingByPaintingCode (String paintingCode);
 
-    public List<PaintingMst> searchPainting(SearchPaintingReqDto searchReqDto);
+    public List<PaintingMst> searchPainting(SearchPaintingReqDto searchPaintingReqDto);
 
     public int savePainting (PaintingReqDto paintingReqDto);
 
