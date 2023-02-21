@@ -4,7 +4,6 @@ import com.korit.museum.entity.UserMst;
 import com.korit.museum.exception.CustomValidationException;
 import com.korit.museum.repository.AccountRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
