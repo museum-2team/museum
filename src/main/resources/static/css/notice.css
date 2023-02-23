@@ -1,0 +1,76 @@
+.notice-container{
+    
+}
+.title{
+    width: 650px;
+    height: 82px;
+    text-align: center;
+    border-bottom: 2px solid #4f4f4f;
+    display: block;
+}
+.notice-title{
+    font-size: 40px;
+    
+    height: auto;
+    width:auto;
+    margin: auto;
+    text-align: center;
+    
+    justify-content: flex-end;
+    color: black;
+    
+}
+.title-img{
+    
+}
+.td{
+    height:  32px;
+}
+.main-information{
+    display: table-header-group;
+    vertical-align: middle;
+}
+.number-count{
+    height: 22px;
+    width: 21px;
+
+}
+.title2{
+    
+    overflow: hidden;
+    margin:0 0 0 10px;
+    padding:0 0 10px;
+    height: 22px;
+    width: 423px;
+}
+.registration-date{
+    width: 100px;
+    height: 22px;
+}
+.check-count{
+    
+    overflow: hidden;
+    width: 85px;
+    height: 22px;
+    margin: 0 0 0 10px;
+    padding: 0 0 10px;
+}
+.blind{
+    position: absolute;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+.main-information tr td div{
+    height: 32px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #7f7f7f;
+}
+.main-table{
+    margin-top: 20px;
+}
+.main-asd tr td {
+    padding:9px 0 ;
+}
