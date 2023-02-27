@@ -1,0 +1,26 @@
+#container #aside-right {
+    z-index: 5;
+    position: absolute;
+    top: 230px;
+    right: 3px;
+    width: 77px;
+    text-align: right;
+}
+
+#container #aside-rightv li {   
+    height:14px; 
+    margin-bottom:9px;  
+}
+
+#container #aside-right li a { 
+    display:block; 
+    overflow:hidden; 
+    height:13px;    
+}
+
+#container #aside-right li a:hover img,
+#container #aside-right li a:focus img,
+#container #aside-right li.on a img {  
+    margin-top:-14px;   
+}
+

@@ -1,0 +1,36 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 51px;
+}
+
+.logo {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 21px;
+    line-height: 10px;
+}
+
+.logo > img {
+    margin: 12px 0px 10px 19px;
+}
+
+.util-nav {
+    padding-top: 21px;
+}
+.nav-list {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list a {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.nav-list a span {
+    padding-right: 5px;
+}

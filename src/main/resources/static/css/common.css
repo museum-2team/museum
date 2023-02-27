@@ -1,0 +1,47 @@
+* {
+    font-family:'바탕', Batang, Garamond, 'Times New Roman', serif, sans-serif;
+    line-height:1.5;
+	font-size:0.75em;
+	color:#666;
+}
+
+.wrap {
+    box-sizing: content-box;
+    margin: 0px auto;
+    min-width: 1118px;
+    max-width: 1254px;
+    height: 100%;
+    min-height: 700px;
+    padding: 0px 55px 0px 57px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+}
+
+#container {    
+    z-index:10;
+    position:relative;
+    min-height:600px; 
+    *zoom:1;   
+}
+
+#container:after {
+    content:".";
+    display:block;
+    clear:both;
+    visibility:hidden; 
+    height:0;   
+}
+
+.main-article {
+    width: 778px;
+    height: 599px;
+    margin: 0 auto;
+    position: relative;
+}
+

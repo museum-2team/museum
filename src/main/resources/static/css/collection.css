@@ -1,0 +1,113 @@
+.main-collection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    width: 650px;
+    min-height: 750px;
+    margin: 0 auto;
+    
+}
+.main-collection-titel{
+    width:160px;
+    margin: auto;
+    
+    justify-content: flex-end;
+    
+
+}
+.title-img {
+    width: 221px;
+}
+.collection-search{
+    
+    display: flex;
+}
+.search-input{
+    
+    border: none;
+    border-radius: 0px;
+    outline:none;
+    width: 470px;
+    
+    
+}
+.search-button{
+    
+    border: none;
+    cursor: pointer;
+    background-color: white;
+}
+.search-img{
+    padding-right:20px ;
+}
+.search-container{
+    border-bottom: 2px solid #dbdbdb;
+
+}
+
+.p-i{
+    margin-right: 25px;
+    margin-bottom: 25px;
+}
+
+.p-i:nth-child(3n+3){
+    margin-right: 0px;
+    margin-bottom: 30px;
+}
+
+.p-i-m{
+    height: 249px;
+    width: 200px;
+    user-select: auto;
+}
+.painting-img{
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    list-style-type: none;
+
+}
+.painting-a{
+    position: relative;
+    display: block;
+    width: 200px;
+    height: 249px;
+    text-decoration:none;
+    color: #666;
+    cursor: pointer;
+
+}
+.info-wrap{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 30px;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #000000bb;
+    height: 100%;
+    opacity: 0;
+}
+
+.visibility {
+    opacity: 1;
+}
+
+.drawing, .wrap-name, .pic-year{
+    color: white;
+}
+
+.wrap-name{
+    
+    
+}
+.pic-year{
+    
+
+}
+
+
