@@ -24,3 +24,17 @@
     margin-top:-14px;   
 }
 
+.link-a{
+    font-weight: bold;
+    font-family:cursive;
+    color: #999898;
+}
+.link-a:hover{
+    color: black;
+    text-decoration-line:underline;
+
+}
+
+.footer-p{
+    display: flex;
+}
