@@ -5,9 +5,8 @@ window.onload = () => {
 const paintingObj = {
     paintingCode: "",
     paintingTitleName: "",
-    viewingTime: "",
     exhibitionWorks: "",
-    exhibitionPeriod: "",
+    viewingTime: "",
     paintingName: "",
     author: "",
     paintingSize: "",
@@ -85,14 +84,13 @@ class PaintingAddService {
 
         paintingObj.paintingCode = addInputs[0].value;
         paintingObj.paintingTitleName = addInputs[1].value;
-        paintingObj.viewingTime = addInputs[2].value;
-        paintingObj.exhibitionWorks = addInputs[3].value;
-        paintingObj.exhibitionPeriod = addInputs[4].value;
-        paintingObj.paintingName = addInputs[5].value;
-        paintingObj.author = addInputs[6].value;
-        paintingObj.paintingSize = addInputs[7].value;
-        paintingObj.year_of_Manufacture = addInputs[8].value;
-        paintingObj.material = addInputs[9].value;
+        paintingObj.exhibitionWorks = addInputs[2].value;
+        paintingObj.viewingTime = addInputs[3].value;
+        paintingObj.paintingName = addInputs[4].value;
+        paintingObj.author = addInputs[5].value;
+        paintingObj.paintingSize = addInputs[6].value;
+        paintingObj.year_of_Manufacture = addInputs[7].value;
+        paintingObj.material = addInputs[8].value;
 
     }
 
@@ -105,16 +103,14 @@ class PaintingAddService {
                 errorMessages[0].innerHTML = errors[key];
             }else if(key == "paintingTitleName"){
                 errorMessages[1].innerHTML = errors[key];
-            }else if(key == "viewingTime"){
-                errorMessages[2].innerHTML = errors[key];
             }else if(key == "exhibitionWorks"){
+                errorMessages[2].innerHTML = errors[key];
+            }else if(key == "viewingTime"){
                 errorMessages[3].innerHTML = errors[key];
-            }else if(key == "exhibitionPeriod"){
-                errorMessages[4].innerHTML = errors[key];
             }else if(key == "paintingSize"){
-                errorMessages[7].innerHTML = errors[key];
+                errorMessages[6].innerHTML = errors[key];
             }else if(key == "material"){
-                errorMessages[9].innerHTML = errors[key];
+                errorMessages[8].innerHTML = errors[key];
             }
         })
     }
