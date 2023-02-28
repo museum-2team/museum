@@ -20,11 +20,11 @@ const fileObj = {
     formData: new FormData()
 }
 
-class PaintingaddApi{
+class PaintingAddApi{
     static #instance = null;
     static getInstance() {
         if(this.#instance == null){
-            this.#instance = new PaintingaddApi();
+            this.#instance = new PaintingAddApi();
         }
         return this.#instance;
     }
@@ -189,5 +189,51 @@ class ComponentEvent {
         }
     }
 
-    add
+    addChangeEventImgFile(){
+        const imgFile = document.querySelector(".img-file");
+
+        imgFile.onchange = () => {
+            const formData = new FormData(document.querySelector(".img-form"));
+
+            let changeFlag = false;
+
+            fileObj.files.pop();
+
+            formData.forEach(value => {
+                console.log(value);
+                if(value.size != 0){
+                    fileObj.files.push(value);
+                    changeFlag = true;
+                }
+            });
+
+            if(changeFlag){
+                const imgAddButton = document.querySelector(".img-add-button");
+                imgAddButton.disabled = false;
+
+                ImgFileService.getInstance().getImgPreview();
+                imgFile.value = null;
+            }
+        }
+    }
+
+    addClickEventImgaddButton(){
+        const imgAddButton = document.querySelector(".img-add-button");
+
+        imgAddButton.onclick = () => {
+            fileObj.formData.append("files", fileObj.files[0]);
+            PaintingAddApi.getInstance().addImg();
+        }
+    }
+
+    addClickEventImgCancelButton(){
+        const imgCancelButton = document.querySelector(".igm-cancel-button");
+
+        imgCancelButton.onclick = () => {
+            if(confirm("이미지 등록을 취소하시겠습니까?")){
+                location.reload();
+            }
+        }
+    }
+
 }
