@@ -33,6 +33,7 @@
 .number-count{
     height: 22px;
     width: 21px;
+    margin: none;
 
 }
 .title2{
@@ -71,6 +72,74 @@
 .main-table{
     margin-top: 20px;
 }
-.main-asd tr td {
-    padding:9px 0 ;
+/* .main-asd tr td {
+    padding: 9px 0px 9px 0px ;
+} */
+.page-controller{
+    
+    margin: 0;
+    margin-top: 20px;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+
+
+
 }
+.page-controller-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+}
+.page-controller a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+
+}
+.page-controller a:hover{
+    text-decoration: underline;
+    font-weight: bold;
+
+}
+.page-numbers{
+    display: flex;
+}
+.tbody tr td{
+    padding: 9px 5px 9px 0px;
+}
+.main-asd-1{
+    width: 15px;
+    height: 18px;
+    text-align: center;
+    padding: 0;
+    
+    
+}
+.main-asd-2{
+    padding: 9px 0px 9px 10px ;
+}
+.main-asd-3{
+    
+}
+.main-asd-4{
+    padding: 9px 0px 9px 10px ;
+
+}
+

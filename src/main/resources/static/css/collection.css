@@ -63,6 +63,10 @@
     margin-right: 0px;
     margin-bottom: 30px;
 }
+.hr-a{
+    
+    width: 650px;
+}
 
 .p-i-m{
     height: 249px;
@@ -85,8 +89,9 @@
     text-decoration:none;
     color: #666;
     cursor: pointer;
-
+    
 }
+
 .info-wrap{
     position: absolute;
     top: 0px;
