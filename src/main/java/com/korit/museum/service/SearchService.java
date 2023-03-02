@@ -19,4 +19,8 @@ public class SearchService {
         searchPaintingReqDto.setIndex();
         return searchRepository.userSearchPainting(searchPaintingReqDto);
     }
+
+    public int getSearchTotalCount(SearchPaintingReqDto searchPaintingReqDto){
+        return searchRepository.getUserSearchPaintingTotalCount(searchPaintingReqDto);
+    }
 }

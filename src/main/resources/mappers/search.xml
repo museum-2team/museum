@@ -4,6 +4,23 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.korit.museum.repository.SearchRepository">
+
+    <select id="getUserSearchTotalCount"
+            parameterType="com.korit.museum.web.dto.SearchPaintingReqDto"
+            resultType="Integer">
+        select
+            count(*)
+        from
+            painting_mst
+        where
+        1 = 1
+        <if test="searchValue != null and searchValue != ''">
+            and (painting_name like concat('%', #{searchValue}, '%')
+            or author like concat('%' #{searchValue}, '%')
+            or year_of_manufacture like concat('%', #{searchValue}, '%'))
+        </if>
+    </select>
+
     <select id="userSearchPainting"
             parameterType="com.korit.museum.web.dto.SearchPaintingReqDto"
             resultType="com.korit.museum.entity.SearchPainting">

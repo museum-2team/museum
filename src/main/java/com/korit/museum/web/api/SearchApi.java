@@ -32,4 +32,12 @@ public class SearchApi {
                         searchService.getSearchPaintings(searchPaintingReqDto)));
     }
 
+    @GetMapping("/search/totalcount")
+    public ResponseEntity<CMRespDto<Integer>> getSearchTotalCount(SearchPaintingReqDto searchPaintingReqDto){
+        return ResponseEntity.ok()
+                .body(new CMRespDto<> (HttpStatus.OK.value(),
+                        "Successfully",
+                        searchService.getSearchTotalCount(searchPaintingReqDto)));
+    }
+
 }

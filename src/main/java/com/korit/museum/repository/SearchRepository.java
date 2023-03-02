@@ -9,4 +9,6 @@ import java.util.List;
 @Mapper
 public interface SearchRepository {
     public List<SearchPainting> userSearchPainting(SearchPaintingReqDto searchPaintingReqDto);
+
+    public int getUserSearchPaintingTotalCount(SearchPaintingReqDto searchPaintingReqDto);
 }
