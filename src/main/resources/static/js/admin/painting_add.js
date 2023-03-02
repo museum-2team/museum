@@ -1,5 +1,9 @@
 window.onload = () => {
-
+    ComponentEvent.getInstance().addChangeEventImgFile();
+    ComponentEvent.getInstance().addClickEventAddButton();
+    ComponentEvent.getInstance().addClickEventImgAddButton();
+    ComponentEvent.getInstance().addClickEventImgCancelButton();
+    ComponentEvent.getInstance().addClickEventImgaddButton();
 }
 
 const paintingObj = {

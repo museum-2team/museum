@@ -48,11 +48,46 @@
                         <div class="painting-item-right">
                             <select class="category-select">
                                 <option value="">전체조회</option>
-                                <option value="작가명">작가명</option>
                                 <option value="작품명">작품명</option>
+                                <option value="작가명">작가명</option>
+                                <option value="제작년도">제작년도</option>
                             </select>
-
+                            <input type="search" class="search-input">
+                            <button type="button" class="saerch-button">검색</button>
                         </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="painting-table">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" class="delete-checkall"></th>
+                                    <th>아이디</th>
+                                    <th>작품코드</th>
+                                    <th>전시타이틀</th>
+                                    <th>전시기간</th>
+                                    <th>관람시간</th>
+                                    <th>작품명</th>
+                                    <th>작가명</th>
+                                    <th>작품크기</th>
+                                    <th>제작년도</th>
+                                    <th>재료</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="page-controller">
+                        <a href="" class="disabled">이전</a>
+                        <ul class="page-number">
+                            <a href=""><li>1</li></a>
+                            <a href=""><li>2</li></a>
+                            <a href=""><li>3</li></a>
+                            <a href=""><li>4</li></a>
+                            <a href=""><li>5</li></a>
+                        </ul>
+                        <a href="">다음</a>
                     </div>
                 </div>
             </div>
