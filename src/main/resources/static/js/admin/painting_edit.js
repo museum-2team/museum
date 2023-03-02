@@ -98,7 +98,7 @@ class PaintingEditApi {
         $.ajax({
             async: false,
             type: "delete",
-            url: `http://localhost:8000/api/admin/painting/${paintingObj.paintingCode}/image/${imgObj.imageId}`;
+            url: `http://localhost:8000/api/admin/painting/${paintingObj.paintingCode}/image/${imgObj.imageId}`,
             dataType: "json",
             success: response => {
                 successFlag = true;
