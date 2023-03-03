@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>posco art museum</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c35f571ec8ba3d767bf9098c501f81a7&libraries=services,clusterer,drawing"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/left_aside.css">
+    <link rel="stylesheet" href="/static/css/right_aside.css">
+    <link rel="stylesheet" href="/static/css/bottom.css">
+    <link rel="stylesheet" href="/static/css/collection.css">
+    <link rel="stylesheet" href="/static/css/location.css">
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+ 
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <h1 class="logo">
+                <a href=""><img src="/static/img/logo/logo_posco_art.gif"></a>
+                <img src="/static/img/logo/logo_posco_art_txt.gif">
+            </h1>
+            <div class="util-nav">
+                <ul class="nav-list">
+                    <li><a href=""><img src="/static/img/kor/layout/util_map.gif"></a></li>
+                    <li><a href=""><img src="/static/img/kor/layout/util_en.gif"></a></li>
+                    <li><a href=""><img src="/static/img/kor/layout/util_sitemap.gif"></a></li>
+                </ul>
+            </div>
+        </header>
+        <main class="container">
+            <aside class="aside-left">
+                
+            </aside>
+
+            <div class="main-collection">
+                <h1 class ="main-collection-titel">관람안내</h1>
+                <img src="/static/img/new/txt_view_info.gif" class="title-img">
+                <hr>
+                <map>
+
+                </map>
+                <div id="map" class="map-size"></div>
+                <script>   
+                    var container = document.getElementById('map');
+                    var options = {
+                        center: new kakao.maps.LatLng(33.450701, 126.570667),
+                        level: 3
+                    };
+            
+                    var map = new kakao.maps.Map(container, options);
+                    // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+                    var mapTypeControl = new kakao.maps.MapTypeControl();
+            
+                    // 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+                    // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+                    map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+            
+                    // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+                    var zoomControl = new kakao.maps.ZoomControl();
+                    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+                    // 마커가 표시될 위치입니다 
+                    var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
+
+                    // 마커를 생성합니다
+                    var marker = new kakao.maps.Marker({
+                        position: markerPosition
+                    });
+
+                    // 마커가 지도 위에 표시되도록 설정합니다
+                    marker.setMap(map);
+                </script>
+                <div class="serve-div">
+                    <div class="way">
+                        <h3 class="h3-ammmm">
+                            <img src="/static/img/new/tit_view_info01.gif" alt="찾아오시는 길">
+                        </h3>
+                        <ul>
+                            <li>
+                                <strong class="tit-l">지하철</strong>
+                                <span class="txt">2호선, 분당선 선릉역 하차, <br>1번 출구(서울강남고용센터 방면)로 <br>나와 도보 13분<br><span>2호선 삼성역 하차, 4번 출구<br>(무역센터 방면)로 나와 도보 13분</span></span>
+                            </li>
+                            <li>
+                                <strong class="tit-l">버스</strong>
+                                <span class="txt">포스코 빌딩 정류장 하차</span>
+                            </li>
+                            <li>
+                                <strong class="tit-l">광역</strong>
+                                <span class="txt">100, 1700, 2000, 7007, 8001, 9414</span>
+                            </li>
+                            <li>
+                                <strong class="tit-l">간선</strong>
+                                <span class="txt">146, 333, 341, 360, 740, N13, N61</span>
+                            </li>
+                            <li>
+                                <strong class="tit-l">지선</strong>
+                                <span class="txt">4434</span>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="right-wrap">
+                        <div class="time">
+                            <h3 class="h3-ammmm"><img src="/static/img/new/tit_view_info02.gif" alt="관람시간"></h3>
+                            <ul>
+                                <li class="li-ammm">
+                                    <strong class="tit-r">월요일-금요일</strong>
+                                    <span class="txt">오전 10시부터 오후 6시까지</span>
+                                </li>
+                                <li class="li-ammm">
+                                    <strong class="tit-r">토, 일, 공휴일</strong>
+                                    <span class="txt">매주 토,일요일 및 국 공휴일 휴관, <br>전시 종료 시간 30분 전 입장 마감</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="parking">
+                            <h3 class="h3-ammmm"><img src="/static/img/new/tit_view_info03.gif" alt="주차"></h3>
+                            <ul style="margin-top: 17px;">
+                                <li >
+                                    <strong class="tit-r">포스코 센터 주차장 이용</strong>
+                                    <span class="txt">주차요금 30분 2,000원</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                
+                
+            </div>
+
+            <aside class="aside-right">
+
+            </aside>
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+    
+    <script type="text/javascript" src="/templates/S91_010/S91_010010/front/new/js/collection.js"></script>
+</body>
+</html>

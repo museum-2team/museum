@@ -1,0 +1,63 @@
+.map-size{
+    width: 650px;
+    height: 650px;
+}
+
+.serve-div{
+    overflow: hidden;
+    margin-top: 40px;
+    display: block;
+}
+.way{
+    float: left;
+    width: 310px;
+    display: block;
+    margin-right: 20px;
+}
+.right-wrap{
+    float: right;
+    width: 310px;
+    display: block;
+}
+.h3-ammmm{
+    padding-bottom: 14px;
+    border-bottom: 1px solid #dadada;
+    margin: 0;
+    padding: 0;
+}
+.tit-l{
+    margin-top: 0px;
+    float: left;
+    width: 56px;
+    color: #444444;
+    vertical-align: top;
+    display: inline-block;
+    font-weight: bold;
+}
+.tit-r{
+    margin-top: 0px;
+    float: left;
+    width: 125px;
+    color: #444444;
+    vertical-align: top;
+    display: inline-block;
+    font-weight: bold;
+}
+.txt{
+    float: left;
+    width: 254px;
+    vertical-align: top;
+    display: inline-block;
+}
+.right-wrap{
+    float: right;
+    width: 310px;
+    display: block;
+}
+.parking{
+    margin-top: 27px;
+    display: block;
+}
+.li-ammm{
+    display: flex;
+}
