@@ -1,9 +1,11 @@
 window.onload = () => {
+    PaintingAddService.getInstance().loadCategories();
+
     ComponentEvent.getInstance().addChangeEventImgFile();
     ComponentEvent.getInstance().addClickEventAddButton();
     ComponentEvent.getInstance().addClickEventImgAddButton();
     ComponentEvent.getInstance().addClickEventImgCancelButton();
-    ComponentEvent.getInstance().addClickEventImgaddButton();
+    ComponentEvent.getInstance().addClickEventImgAddButton();
 }
 
 const paintingObj = {
@@ -37,6 +39,7 @@ class PaintingAddApi{
 
         $.ajax({
             async: false,
+            type: "post",
             url: "http://localhost:8000/api/admin/painting",
             contentType: "application/json",
             data: JSON.stringify(paintingObj),
@@ -46,7 +49,7 @@ class PaintingAddApi{
             },
             error: error => {
                 console.log(error);
-                PaintingaddApi.getInstance().setErrors(error.responseJSON.data);
+                PaintingAddService.getInstance().setErrors(error.responseJSON.data);
             }
         });
         return successFlag;
@@ -72,6 +75,25 @@ class PaintingAddApi{
             }
         });
     }
+
+    getCategories() {
+        let responseData = null;
+
+        $.ajax({
+            async: false,
+            type: "get",
+            url: "http://localhost:8000/api/admin/categories",
+            dataType: "json",
+            success: response => {
+                responseData = response.data;
+            },
+            error: error => {
+                console.log(error);
+            }
+        });
+
+        return responseData;
+    }
 }
 
 class PaintingAddService {
@@ -96,6 +118,19 @@ class PaintingAddService {
         paintingObj.year_of_Manufacture = addInputs[7].value;
         paintingObj.material = addInputs[8].value;
 
+    }
+
+    loadCategories() {
+        const responseData = PaintingAddApi.getInstance().getCategories();
+
+        const categorySelect = document.querySelector(".category-select");
+        categorySelect.innerHTML = `<option value="">전체조회</option>`;
+
+        responseData.forEach(data => {
+            categorySelect.innerHTML += `
+                <option value="${data.category}">${data.category}</option>
+            `;
+        });
     }
 
     setErrors(errors) {
@@ -141,7 +176,7 @@ class ImgFileService {
         const reader = new FileReader ();
 
         reader.onload = (e) => {
-            paintingImg.src = e.target.result
+            paintingImg.src = e.target.result;
         }
 
         reader.readAsDataURL(fileObj.files[0]);
@@ -161,7 +196,7 @@ class ComponentEvent {
         const addButton = document.querySelectorAll(".add-button");
 
         addButton.onclick = () => {
-            PaintingaddService.getInstance.setPaintingObjValues();
+            PaintingAddService.getInstance.setPaintingObjValues();
             const successFlag = PaintingAddService.getInstance().addPainting();
 
             if(!successFlag){
@@ -194,13 +229,13 @@ class ComponentEvent {
 
         imgFile.onchange = () => {
             const formData = new FormData(document.querySelector(".img-form"));
-
             let changeFlag = false;
 
             fileObj.files.pop();
 
             formData.forEach(value => {
                 console.log(value);
+
                 if(value.size != 0){
                     fileObj.files.push(value);
                     changeFlag = true;
@@ -217,7 +252,7 @@ class ComponentEvent {
         }
     }
 
-    addClickEventImgaddButton(){
+    addClickEventImgAddButton(){
         const imgAddButton = document.querySelector(".img-add-button");
 
         imgAddButton.onclick = () => {
@@ -226,11 +261,11 @@ class ComponentEvent {
         }
     }
 
-    addClickEventImgCancelButton(){
-        const imgCancelButton = document.querySelector(".igm-cancel-button");
+    addClickEventImgCancelButton() {
+        const imgCancelButton = document.querySelector(".img-cancel-button");
 
         imgCancelButton.onclick = () => {
-            if(confirm("이미지 등록을 취소하시겠습니까?")){
+            if(confirm("정말로 이미지 등록을 취소하시겠습니까?")) {
                 location.reload();
             }
         }
