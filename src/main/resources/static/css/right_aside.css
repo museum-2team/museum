@@ -4,8 +4,8 @@
     top: 230px;
     right: 3px;
     width: 77px;
-    text-align: right;
-}
+    text-align: right;    
+}    
 
 #container #aside-rightv li {   
     height:14px; 
@@ -22,5 +22,9 @@
 #container #aside-right li a:focus img,
 #container #aside-right li.on a img {  
     margin-top:-14px;   
+}
+
+#aside-right {  
+    right: 20px;
 }
 
