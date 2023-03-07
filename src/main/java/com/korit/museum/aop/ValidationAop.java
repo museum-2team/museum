@@ -1,5 +1,6 @@
 package com.korit.museum.aop;
 
+import com.korit.museum.exception.CustomValidationException;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -14,7 +15,7 @@ import java.util.Map;
 @Component
 public class ValidationAop {
 
-    @Pointcut("@annotation(com.korit.library.aop.annotation.ValidAspect)")
+    @Pointcut("@annotation(com.korit.museum.aop.annotation.ValidAspect)")
     private void pointCut() {}
 
     @Around("pointCut()")
@@ -37,7 +38,7 @@ public class ValidationAop {
                 errorMap.put(error.getField(), error.getDefaultMessage());
             });
 
-            throw null;
+            throw new CustomValidationException(errorMap);
         }
 
         return proceedingJoinPoint.proceed();

@@ -19,7 +19,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
-@RequestMapping("/api/")
+@RequestMapping("/api/admin")
 @RestController
 public class PaintingApi {
 
@@ -82,7 +82,7 @@ public class PaintingApi {
                 .body(new CMRespDto<>(HttpStatus.OK.value(), "Successfully", true));
     }
 
-    @PostMapping("/painting/{paintingCode}/images/modification")
+    @PostMapping("/painting/{paintingCode}/images/edit")
     public ResponseEntity<CMRespDto<?>> modifyPaintingImg(@PathVariable String paintingCode, @RequestBody List<MultipartFile> files){
         paintingService.registerPaintingImages(paintingCode, files);
         return ResponseEntity
@@ -98,7 +98,7 @@ public class PaintingApi {
                 .body(new CMRespDto<>(HttpStatus.OK.value(), "Successfully", paintingImages));
     }
 
-    @DeleteMapping("painting/{paintingCode}/image/{imageId}")
+    @DeleteMapping("/painting/{paintingCode}/image/{imageId}")
     public ResponseEntity<CMRespDto<?>> removePaintingImg(
         @PathVariable String paintingCode,
         @PathVariable int imageId){

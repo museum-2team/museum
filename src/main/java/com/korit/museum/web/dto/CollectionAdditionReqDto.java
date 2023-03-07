@@ -16,7 +16,7 @@ public class CollectionAdditionReqDto {
     private String collectionName;
 
     @Max(value = 500000000, message = "최대 금액은 5억원 까지만 설정 가능합니다.")
-    @Min(value = 1000000, message = "최소 금액은 100만원입니다.")
+    @Min(value = 10000, message = "최소 금액은 1만원입니다.")
     private int price;
 
     private String author;

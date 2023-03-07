@@ -68,7 +68,7 @@ public class PaintingService {
     }
 
     public void registerPaintingImages(String paintingCode, List<MultipartFile> files){
-        if(files.size() > 1){
+        if(files.size() < 1){
             Map<String, String> errorMap = new HashMap<String, String>();
             errorMap.put("files", "이미지를 선택하세요.");
 

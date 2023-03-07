@@ -15,7 +15,6 @@ public class SearchPainting {
     private String paintingTitleName;
     private String viewingTime;
     private String exhibitionWorks;
-    private String exhibitionPeriod;
 
     private String paintingName;
     private String author;

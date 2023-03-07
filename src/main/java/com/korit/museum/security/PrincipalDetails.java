@@ -3,7 +3,6 @@ package com.korit.museum.security;
 import com.korit.museum.entity.RoleDtl;
 import com.korit.museum.entity.RoleMst;
 import com.korit.museum.entity.UserMst;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,7 +14,6 @@ import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
-@AllArgsConstructor
 public class PrincipalDetails implements UserDetails {
 
     @Getter
@@ -51,10 +49,6 @@ public class PrincipalDetails implements UserDetails {
     @Override
     public String getUsername() {
         return user.getUsername();
-    }
-
-    public String getName(){
-        return user.getName();
     }
 
     @Override

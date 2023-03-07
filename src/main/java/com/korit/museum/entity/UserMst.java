@@ -17,7 +17,6 @@ public class UserMst {
 
     @NotBlank
     private int userId;
-
     @NotBlank
     private String username;
 
