@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.korit.museum.repository.SearchRepository">
+
+    <select id="getUserSearchTotalCount"
+            parameterType="com.korit.museum.web.dto.SearchPaintingReqDto"
+            resultType="Integer">
+        select
+            count(*)
+        from
+            painting_mst
+        where
+        1 = 1
+        <if test="searchValue != null and searchValue != ''">
+            and (painting_name like concat('%', #{searchValue}, '%')
+            or author like concat('%' #{searchValue}, '%')
+            or year_of_manufacture like concat('%', #{searchValue}, '%'))
+        </if>
+    </select>
+
+    <select id="userSearchPainting"
+            parameterType="com.korit.museum.web.dto.SearchPaintingReqDto"
+            resultType="com.korit.museum.entity.SearchPainting">
+        select
+            pm.painting_id as paintingId,
+            pm.painting_code as paintingCode,
+            pm.painting_name as paintingName,
+            pm.authoer,
+            pm.year_of_manufacture as year_of_Manufacture,
+
+            pi.save_name as saveName
+
+        from
+            painting_mst pm
+            left outer join painting_image pi
+                on(pi.painting_code = pm.painting_code)
+        where
+        1 = 1
+        <if test="searchValue != null and searchValue != ''">
+            and (pm.painting_name like concat('%', #{searchValue} ,'%')
+            or pm.author like concat ('%', #{searchValue}, '%')
+            or pm.year_of_manufacture like concat('%', #{searchValue}, '%'))
+        </if>
+
+        limit #{index}, #{count};
+    </select>
+</mapper>
