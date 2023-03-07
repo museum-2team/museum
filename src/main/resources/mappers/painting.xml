@@ -12,7 +12,6 @@
             pm.painting_title_name as paintingTitleName,
             pm.viewing_time as viewingTime,
             pm.exhibition_works as exhibitionWorks,
-            pm.exhibition_period as exhibitionPeriod,
 
             pm.painting_name as paintingName,
             author,
@@ -52,8 +51,7 @@
 
             painting_title_name as paintingTitleName,
             viewing_time as viewingTime,
-            exhibition_work as exhibitionWorks,
-            exhibition_period as exhibitionPeriod,
+            exhibition_works as exhibitionWorks,
 
             painting_name as paintingName,
             author,
@@ -113,7 +111,7 @@
     <insert id="savePainting" parameterType="com.korit.museum.web.dto.PaintingReqDto">
         insert into painting_mst
         values
-            (0, #{paintingCode}, #{paintingTitleName}, #{viewingTime},  #{exhibitionWorks}, #{exhibitionWorks}, #{exhibitionPeriod}, #{paintingName},
+            (0, #{paintingCode}, #{paintingTitleName}, #{viewingTime},  #{exhibitionWorks}, #{paintingName},
             #{author}, #{paintingSize}, #{year_of_Manufacture}, #{material})
     </insert>
 
@@ -123,7 +121,6 @@
             painting_title_name = #{paintingTitleName},
             viewing_time = if(#{viewingTime} = '', null, #{viewingTime}),
             exhibition_works = if(#{exhibitionWorks} = '', null, #{exhibitionWorks}),
-            exhibition_period = if(#{exhibitionPeriod} = '', null, #{exhibitionPeriod}),
 
             painting_name = #{paintingName},
             author = if(#{author} = '', null, #{author}),
