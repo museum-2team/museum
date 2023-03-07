@@ -1,5 +1,5 @@
 window.onload = () => {
-    PaintingAddService.getInstance().loadCategories();
+    // PaintingAddService.getInstance().loadCategories();
 
     ComponentEvent.getInstance().addChangeEventImgFile();
     ComponentEvent.getInstance().addClickEventAddButton();
@@ -55,8 +55,7 @@ class PaintingAddApi{
         return successFlag;
     }
 
-    paintingImg(){
-
+    addImg(){
         $.ajax({
             async: false,
             type: "post",
@@ -67,13 +66,13 @@ class PaintingAddApi{
             data: fileObj.formData,
             dataType: "json",
             success: response => {
-                alert("전시 이미지 등록 완료.");
+                alert("이미지 등록 완료");
                 location.reload();
             },
             error: error => {
                 console.log(error);
             }
-        });
+        })
     }
 
     getCategories() {
@@ -120,24 +119,24 @@ class PaintingAddService {
 
     }
 
-    loadCategories() {
-        const responseData = PaintingAddApi.getInstance().getCategories();
+    // loadCategories() {
+    //     const responseData = PaintingAddApi.getInstance().getCategories();
 
-        const categorySelect = document.querySelector(".category-select");
-        categorySelect.innerHTML = `<option value="">전체조회</option>`;
+    //     const categorySelect = document.querySelector(".category-select");
+    //     categorySelect.innerHTML = `<option value="">전체조회</option>`;
 
-        responseData.forEach(data => {
-            categorySelect.innerHTML += `
-                <option value="${data.category}">${data.category}</option>
-            `;
-        });
-    }
+    //     responseData.forEach(data => {
+    //         categorySelect.innerHTML += `
+    //             <option value="${data.category}">${data.category}</option>
+    //         `;
+    //     });  
+    // }
 
     setErrors(errors) {
         const errorMessages = document.querySelectorAll(".error-message");
         this.clearErrors();
 
-        Object.keys(erorrs).forEach(key => {
+        Object.keys(errors).forEach(key => {
             if(key == "paintingCode"){
                 errorMessages[0].innerHTML = errors[key];
             }else if(key == "paintingTitleName"){
@@ -193,11 +192,11 @@ class ComponentEvent {
     }
 
     addClickEventAddButton(){
-        const addButton = document.querySelectorAll(".add-button");
+        const addButton = document.querySelector(".add-button");
 
         addButton.onclick = () => {
-            PaintingAddService.getInstance.setPaintingObjValues();
-            const successFlag = PaintingAddService.getInstance().addPainting();
+            PaintingAddService.getInstance().setPaintingObjValues();
+            const successFlag = PaintingAddApi.getInstance().addPainting();
 
             if(!successFlag){
                 return;
@@ -255,7 +254,7 @@ class ComponentEvent {
     addClickEventImgAddButton(){
         const imgAddButton = document.querySelector(".img-add-button");
 
-        imgAddButton.onclick = () => {
+        imgAddButton.onclick = () => {  
             fileObj.formData.append("files", fileObj.files[0]);
             PaintingAddApi.getInstance().addImg();
         }
