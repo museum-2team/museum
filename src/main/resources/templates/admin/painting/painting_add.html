@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포스코 미술관</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="/static/css/admin/painting_add.css">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+</head>
+<body>
+    <div id="container">
+        <main>
+            <aside class="main-container">
+                <div class="aside-title">
+                    <h1 class="title-text-h1">관리자 시스템</h1>
+                </div>
+                <nav class="main-menu">
+                    <h2 class="title-text-h2">전시 작품 관리</h2>
+                    <ul class="sub-menu">
+                        <a href="/templates/admin/painting/painting_search.html"><li>전시 작품 조회</li></a>
+                        <a href="/templates/admin/painting/painting_add.html"><li>전시 작품 등록</li></a>
+                        <a href="/templates/admin/painting/painting_edit.html"><li>작품 정보 수정</li></a>
+                        <a href="/templates/admin/painting/painting_remove.html"><li>작품 정보 수정</li></a>
+                    </ul>
+                    <h2 class="title-text-h2">컬렉션 관리</h2>
+                    <ul class="sub-menu">
+                        <a href="/templates/admin/painting/painting_search.html"><li>컬렉션 조회</li></a>
+                        <a href="/templates/admin/painting/painting_add.html"><li>컬렉션 등록</li></a>
+                        <a href="/templates/admin/painting/painting_edit.html"><li>컬렉션 수정</li></a>
+                        <a href="/templates/admin/painting/painting_remove.html"><li>컬렉션 삭제</li></a>
+                    </ul>
+                    <h2 class="title-text-h2">공지사항 관리</h2>
+                    <ul class="sub-menu">
+                        <a href="/templates/admin/painting/painting_search.html"><li>공지사항 조회</li></a>
+                        <a href="/templates/admin/painting/painting_add.html"><li>공지사항 등록</li></a>
+                        <a href="/templates/admin/painting/painting_edit.html"><li>공지사항 수정</li></a>
+                        <a href="/templates/admin/painting/painting_edit.html"><li>공지사항 수정</li></a>   
+                    </ul>
+                </nav>
+            </aside>
+            
+            <div class="painting-container">
+                <h1 class="painting-title">전시 작품 등록</h1>
+                <div class="painting-main">
+                    <div class="painting-main">
+                        <div class="painting-left">
+                            <div class="item-group">
+                                <label class="add-labal">전시 작품 코드</label>
+                                <input type="text" class="add-input">
+                                <div class="error-message"></div>
+                            </div>
+                            <div class="item-group">
+                                <label class="add-labal">전시 타이틀</label>
+                                <input type="text" class="add-input">
+                                <div class="error-message"></div>
+                            </div>
+                            <div class="item-group">
+                                <label class="add-labal">전시기간</label>
+                                <input type="text" class="add-input">
+                                <div class="error-message"></div>
+                            </div>
+                            <div class="item-group">
+                                <label class="add-labal">관람시간</label>
+                                <input type="text" class="add-input">
+                                <div class="error-message"></div>
+                            </div>
+                            <div class="item-group">
+                                <label class="add-labal">작품명</label>
+                                <input type="text" class="add-input">
+                                <div class="error-message"></div>
+                            </div>
+                            <div class="item-group">
+                                <label class="add-labal">작가명</label>
+                                <input type="text" class="add-input">
+                                <div class="error-message"></div>
+                            </div>
+                            <div class="item-group">
+                                <label class="add-labal">작품 크기</label>
+                                <input type="text" class="add-input">
+                                <div class="error-message"></div>
+                            </div>
+                            <div class="item-group">
+                                <label class="add-labal">제작년도</label>
+                                <input type="text" class="add-input">
+                                <div class="error-message"></div>
+                            </div>
+                            <div class="item-group">
+                                <label class="add-labal">재료</label>
+                                <input type="text" class="add-input">
+                                <div class="error-message"></div>
+                            </div>
+                            <button class="add-button">등록하기</button>
+                        </div>
+                        <div class="painting-right">
+                            <form class="img-form">
+                                <input type="file" name="file" class="img-file">
+                                <button type="button" class="img-add-button" disabled>추가</button>
+                                <div class="img-container">
+                                    <img src="/static/images/no_img.png" alt="painting-img">
+                                </div>
+                                <div class="button-group">
+                                    <button type="button" class="img-add-button" disabled>이미지 등록</button>
+                                    <button type="button" class="img-cancel-button" disabled>취소</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/static/js/admin/painting_add.js"></script>
+</body>
+</html>

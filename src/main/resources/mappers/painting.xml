@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.korit.museum.repository.PaintingRepository">
+
+    <select id="searchPainting" parameterType="com.korit.museum.web.dto.SearchPaintingReqDto" resultType="com.korit.museum.entity.PaintingMst">
+        select
+            pm.painting_id as paintingId,
+            pm.painting_code as paintingCode,
+
+            pm.painting_title_name as paintingTitleName,
+            pm.viewing_time as viewingTime,
+            pm.exhibition_works as exhibitionWorks,
+
+            pm.painting_name as paintingName,
+            author,
+            pm.painting_size as paintingSize,
+            pm.year_of_manufacture as year_of_Manufacture,
+            material
+        from
+            painting_mst pm
+        where
+            1 = 1
+        <if test='searchValue != null and searchValue != null ""'>
+            and(
+                pm.painting_name like CONCAT('%', #{searchValue}, '%')
+            or pm.author like CONCAT('%', #{searchValue}, '%')
+            or pm.year_of_manufacture like CONCAT('%', #{searchValue}, '%')
+            )
+        </if>
+
+        order by
+        <choose>
+            <when test='order ==  "paintingName'>pm.painting_name,</when>
+            <when test='order ==  "author"'>pm.author,</when>
+            <when test='order ==  "dateAsc"'>pm.year_of_manufacture,</when>
+            <when test='order == "dateDesc"'>pm.year_of_manufacture desc,</when>
+        </choose>
+            pm.painting_id
+        <if test='limit == "Y"'>
+            limit #{index}
+        </if>
+
+    </select>
+
+    <select id="findPaintingByPaintingCode" resultType="com.korit.museum.entity.PaintingMst">
+        select
+            painting_id as paintingId,
+            painting_code as paintingCode,
+
+            painting_title_name as paintingTitleName,
+            viewing_time as viewingTime,
+            exhibition_works as exhibitionWorks,
+
+            painting_name as paintingName,
+            author,
+            painting_size as paintingSize,
+            year_of_manufacture as year_of_Manufacture,
+            material as Material
+        from
+            painting_mst
+        where
+            painting_code = #{paintingCode};
+    </select>
+
+    <insert id="registerPaintingImages" parameterType="list">
+        insert into painting_image
+        values
+        <foreach collection="list" item="file" separator=",">
+            (0, #{file.paintingCode}, #{file.saveName}, #{file.originName})
+        </foreach>
+    </insert>
+
+    <select id="findPaintingImageAll" resultType="com.korit.museum.entity.PaintingImage">
+        select
+            image_id as imageId,
+            painting_code as paintingCode,
+            save_name as saveName,
+            origin_name as originName
+        from
+            painting_image
+        where
+            painting_code = #{paintingCode}
+    </select>
+
+    <select id="findPaintingByImageId" resultType="com.korit.museum.entity.PaintingImage">
+        select
+            image_id as imageId,
+            painting_code as paintingCode,
+            save_name as saveName,
+            origin_name as originName
+        from
+            painting_image
+        where
+            image_id = #{imageId}
+    </select>
+
+    <select id="findPaintingByImageCode" resultType="com.korit.museum.entity.PaintingImage">
+        select
+            image_id as imageId,
+            painting_code as paintingCode,
+            save_name as saveName,
+            origin_name as originName
+        from
+            painting_image
+        where
+            painting_code = #{paintingCode}
+    </select>
+
+    <insert id="savePainting" parameterType="com.korit.museum.web.dto.PaintingReqDto">
+        insert into painting_mst
+        values
+            (0, #{paintingCode}, #{paintingTitleName}, #{viewingTime},  #{exhibitionWorks}, #{paintingName},
+            #{author}, #{paintingSize}, #{year_of_Manufacture}, #{material})
+    </insert>
+
+    <update id="updatePaintingByPaintingCode" parameterType="com.korit.museum.web.dto.PaintingReqDto">
+        update painting_mst
+        set
+            painting_title_name = #{paintingTitleName},
+            viewing_time = if(#{viewingTime} = '', null, #{viewingTime}),
+            exhibition_works = if(#{exhibitionWorks} = '', null, #{exhibitionWorks}),
+
+            painting_name = #{paintingName},
+            author = if(#{author} = '', null, #{author}),
+            painting_size = if(#{author} = '', null, #{paintingSize}),
+            year_of_manufacture = if(#{author} = '', null, #{year_of_Manufacture}),
+            material = if(#{author} = '', null, #{material})
+        where
+            painting_code = #{paintingCode}
+    </update>
+
+    <delete id="deletePainting">
+        delete
+        from
+            painting_mst
+        where
+            painting_code = #{paintingCode}
+    </delete>
+
+    <delete id="deletePaintings" parameterType="list">
+        delete
+        from
+            painting_mst
+        where
+            painting_id in
+            <foreach collection="list" item="paintingId" open="(" close=")" separator=",">
+                #{paintingId}
+            </foreach>
+    </delete>
+
+    <delete id="deletePaintingImage">
+        delete
+        from
+            painting_image
+        where
+            image_id = #{imageId}
+    </delete>
+
+
+
+</mapper>
