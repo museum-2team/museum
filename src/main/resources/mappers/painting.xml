@@ -22,7 +22,7 @@
             painting_mst pm
         where
             1 = 1
-        <if test='searchValue != null and searchValue != null ""'>
+        <if test='searchValue != null and searchValue != ""'>
             and(
                 pm.painting_name like CONCAT('%', #{searchValue}, '%')
             or pm.author like CONCAT('%', #{searchValue}, '%')
@@ -32,9 +32,9 @@
 
         order by
         <choose>
-            <when test='order ==  "paintingName'>pm.painting_name,</when>
-            <when test='order ==  "author"'>pm.author,</when>
-            <when test='order ==  "dateAsc"'>pm.year_of_manufacture,</when>
+            <when test='order == "paintingName"'>pm.painting_name,</when>
+            <when test='order == "author"'>pm.author,</when>
+            <when test='order == "dateAsc"'>pm.year_of_manufacture,</when>
             <when test='order == "dateDesc"'>pm.year_of_manufacture desc,</when>
         </choose>
             pm.painting_id

@@ -15,9 +15,9 @@
         where
         1 = 1
         <if test="searchValue != null and searchValue != ''">
-            and (painting_name like concat('%', #{searchValue}, '%')
-            or author like concat('%' #{searchValue}, '%')
-            or year_of_manufacture like concat('%', #{searchValue}, '%'))
+            and (painting_name like concat('%', #{searchValue} ,'%')
+            or author like concat('%' #{searchValue} ,'%')
+            or year_of_manufacture like concat('%', #{searchValue} ,'%'))
         </if>
     </select>
 

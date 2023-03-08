@@ -8,7 +8,7 @@ window.onload = () => {
 
 let searchObj = {
     page : 1,
-    category : "",
+    category: "",
     searchValue : "",
     order : "paintingId",
     limit : "Y",
@@ -54,7 +54,7 @@ class PaintingSearchApi {
             type: "get",
             url: "http://localhost:8000/api/admin/paintings/totalcount",
             data:{
-                "category": searchObj.category,
+                "category" : searchObj.category,
                 "searchValue": searchObj.searchValue
             },
             dataType: "json",
@@ -67,27 +67,27 @@ class PaintingSearchApi {
             }
         });
         return returnData;
-    }
+        }
 
-    getCategories(){
-        let responseData = null;
+        getCategories(){
+            let responseData = null;
 
-        $.ajax({
-            async: false,
-            type: "get",
-            url: "http://localhost:8000/api/admin/categories",
-            dataType: "json",
-            success: response => {
-                console.log(response);
-                responseData = response.data;
-            },
-            error: error => {
-                console.log(error);
-            }
-        });
+            $.ajax({
+                async: false,
+                type: "get",
+                url: "http://localhost:8000/api/admin/categories",
+                dataType: "json",
+                success: response => {
+                    console.log(response);
+                    responseData = response.data;
+                },
+                error: error => {
+                    console.log(error);
+                }
+            });
 
-        return responseData;
-    }
+            return responseData;
+        }
 
     deletePaintings(deleteArray){
         let returnFlag = false;
@@ -128,24 +128,25 @@ class PaintingService{
         const checkAll = document.querySelector(".delete-checkall");
         checkAll.checked = false;
 
-        const PaintingListBody = document.querySelector(".painting-table tbody");
-        PaintingListBody.innerHTML = "";
+        const paintingListBody = document.querySelector(".painting-table tbody");
+        paintingListBody.innerHTML = "";
 
         responseData.forEach((data, index) => {
-            PaintingListBody.innerHTML += `
-            <tr>
-                <td><input type="checkbox" class="delete-chekcbox"></td>
-                <td class="painting-id">${data.paintingId}</td>
-                <td>${data.paintingCode}</td>
-                <td>${data.paintingTitleName}</td>
-                <td>${data.exhibitionWorks}</td>
-                <td>${data.viewingTime}</td>
-                <td>${data.paintingName}</td>
-                <td>${data.author}</td>
-                <td>${data.paintingSize}</td>
-                <td>${data.year_of_Manufacture}</td>
-                <td>${data.material}</td>
-                <td><a href="/templates/admin/painting_edit.html?paintingCode=${data.paintingCode}"><i class="fa-solid fa-square-pen"></td>
+            paintingListBody.innerHTML += `
+                <tr>
+                    <td><input type="checkbox" class="delete-chekcbox"></td>
+                    <td class="painting-id">${data.paintingId}</td>
+                    <td>${data.paintingCode}</td>
+                    <td>${data.paintingTitleName}</td>
+                    <td>${data.exhibitionWorks}</td>
+                    <td>${data.viewingTime}</td>
+                    <td>${data.paintingName}</td>
+                    <td>${data.author}</td>
+                    <td>${data.paintingSize}</td>
+                    <td>${data.year_of_Manufacture}</td>
+                    <td>${data.material}</td>
+                    <td><a href="/templates/admin/painting_edit.html?paintingCode=${data.paintingCode}"><i class="fa-solid fa-square-pen"></td>
+                <tr>
             `;
         });
         
