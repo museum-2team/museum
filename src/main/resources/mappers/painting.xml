@@ -4,7 +4,7 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.korit.museum.repository.PaintingRepository">
 
-    <select id="searchPainting" parameterType="com.korit.museum.web.dto.SearchPaintingReqDto" resultType="com.korit.museum.entity.PaintingMst">
+    <select id="searchPainting" parameterType="com.korit.museum.web.dto.SearchReqDto" resultType="com.korit.museum.entity.PaintingMst">
         select
             pm.painting_id as paintingId,
             pm.painting_code as paintingCode,
