@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/common.css">
     <link rel="stylesheet" href="/static/css/admin/painting_edit.css">
     <title>포스코 미술관</title>
 </head>
 <body>
-    <div id="container">
-        <main>
+    <div  id="container">
+        <main class="container-div">
             <aside class="main-container">
                 <div class="aside-title">
                     <h1 class="title-text-h1">관리자 시스템</h1>
@@ -41,7 +44,6 @@
             
             <div class="painting-container">
                 <h1 class="painting-title">전시 작품 수정</h1>
-                <div class="painting-main">
                     <div class="painting-main">
                         <div class="painting-left">
                             <div class="item-group">
@@ -96,7 +98,7 @@
                                 <input type="file" name="file" class="img-file">
                                 <button type="button" class="img-add-button" disabled>수정</button>
                                 <div class="img-container">
-                                    <img src="/static/images/no_img.png" alt="painting-img">
+                                    <img src="/static/images/no_img.png" class="painting-img" alt="painting-img">
                                 </div>
                                 <div class="button-group">
                                     <button type="button" class="img-edit-button" disabled>이미지 수정</button>
@@ -106,7 +108,6 @@
                         </div>
 
                     </div>
-                </div>
             </div>
         </main>
     </div>
