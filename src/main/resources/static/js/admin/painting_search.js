@@ -1,6 +1,6 @@
 window.onload = () => {
     PaintingService.getInstance().loadPaintingList();
-    PaintingService.getInstance().loadCategories();
+    // PaintingService.getInstance().loadCategories();
     ComponentEvent.getInstance().addClickEventSearchButton();
     ComponentEvent.getInstance().addClickEventDeleteButton();
     ComponentEvent.getInstance().addClickEventDeleteCheckAll();
@@ -8,7 +8,6 @@ window.onload = () => {
 
 let searchObj = {
     page : 1,
-    category: "",
     searchValue : "",
     order : "paintingId",
     limit : "Y",
@@ -32,7 +31,7 @@ class PaintingSearchApi {
             type: "get",
             url: "http://localhost:8000/api/admin/paintings",
             data: searchObj,
-            dataType: "json",
+            dataType: "json",   
             success: response => {
                 console.log(response);
                 returnData = response.data;
@@ -54,7 +53,6 @@ class PaintingSearchApi {
             type: "get",
             url: "http://localhost:8000/api/admin/paintings/totalcount",
             data:{
-                "category" : searchObj.category,
                 "searchValue": searchObj.searchValue
             },
             dataType: "json",
@@ -194,10 +192,10 @@ class PaintingService{
                         : searchObj.page - (searchObj.page % 5) + 1;
 
         const endIndex = startIndex + 4 <= maxPageNumber ? startIndex + 4 : maxPageNumber;
-        const pageNumber = document.querySelector(".page-number");
+        const pageNumbers = document.querySelector(".page-numbers");
 
         for(let i = startIndex; i <= endIndex; i++) {
-            pageNumber.innerHTML += `
+            pageNumbers.innerHTML += `
                 <a href="javascript:void(0)"class="page-button ${i == searchObj.page ? "disabled" : ""}><li>${i}</li></a>
             `;
         }
@@ -254,7 +252,7 @@ class ComponentEvent{
         
         searchButton.onclick = () => {
             searchObj.category = categorySelect.value;
-            searchObj.searchValue = categorySelect.value;
+            searchObj.searchValue = searchInput.value;
             searchObj.page = 1;
             
             PaintingService.getInstance().loadPaintingList();

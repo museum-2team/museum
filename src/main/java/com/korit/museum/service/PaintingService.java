@@ -4,10 +4,7 @@ import com.korit.museum.entity.PaintingImage;
 import com.korit.museum.entity.PaintingMst;
 import com.korit.museum.exception.CustomValidationException;
 import com.korit.museum.repository.PaintingRepository;
-import com.korit.museum.web.dto.DeletePaintingsReqDto;
-import com.korit.museum.web.dto.PaintingReqDto;
-import com.korit.museum.web.dto.SearchPaintingReqDto;
-import com.korit.museum.web.dto.SearchReqDto;
+import com.korit.museum.web.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -34,6 +31,10 @@ public class PaintingService {
         result.put("paintingMst", paintingRepository.findPaintingByPaintingCode(paintingCode));
         result.put("paintingImage", paintingRepository.findPaintingByImageCode(paintingCode));
         return result;
+    }
+
+    public int getPaintingTotalCount(SearchNumberListReqDto searchNumberListReqDto){
+        return paintingRepository.getPaintingTotalCount(searchNumberListReqDto);
     }
 
     public List<PaintingMst> searchPainting(SearchReqDto searchReqDto) {

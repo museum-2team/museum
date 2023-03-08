@@ -106,6 +106,12 @@ public class PaintingApi {
                 .body(new CMRespDto<>(HttpStatus.OK.value(), "Successfully", null));
 
     }
+    @GetMapping("/paintings/totalcount")
+    public ResponseEntity<CMRespDto<?>> getBookTotalCount(SearchNumberListReqDto searchNumberListReqDto) {
+        return ResponseEntity
+                .ok()
+                .body(new CMRespDto<>(HttpStatus.OK.value(), "Successfully", paintingService.getPaintingTotalCount(searchNumberListReqDto)));
+    }
 
 
 }
