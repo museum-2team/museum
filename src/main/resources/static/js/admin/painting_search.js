@@ -29,6 +29,7 @@ class PaintingSearchApi {
 
         $.ajax({
             async: false,
+            type: "get",
             url: "http://localhost:8000/api/admin/paintings",
             data: searchObj,
             dataType: "json",
@@ -147,7 +148,8 @@ class PaintingService{
                 <td><a href="/templates/admin/painting_edit.html?paintingCode=${data.paintingCode}"><i class="fa-solid fa-square-pen"></td>
             `;
         });
-        this.loadPaintingList();
+        
+        this.loadSearchNumberList();
         ComponentEvent.getInstance().addClickEventDeleteCheckbox();
     }
 
