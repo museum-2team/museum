@@ -1,5 +1,13 @@
 window.onload = () => {
+    PaintingEditService.getInstance().setPaintingCode();
+    // PaintingEditService.getInstance().loadCategories();
+    PaintingEditService.getInstance().loadPaintingAndImageData();
     
+    ComponentEvent.getInstance().addClickEventEditButton();
+    ComponentEvent.getInstance().addClickEventImgAddButton();
+    ComponentEvent.getInstance().addChangeEventImgFile();
+    ComponentEvent.getInstance().addClickEventEditButton();
+    ComponentEvent.getInstance().addClickEventImgCancelButton();
 }
 
 const paintingObj = {
@@ -142,7 +150,7 @@ class PaintingEditService {
         return this.#instance;
     }
 
-    setPainting(){
+    setPaintingCode(){
         const URLSearch = new URLSearchParams(location.search);
         paintingObj.paintingCode = URLSearch.get("paintingCode");
     }
