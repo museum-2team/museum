@@ -33,6 +33,7 @@ public class PaintingApi {
     @ValidAspect
     @GetMapping("/paintings")
     public ResponseEntity<CMRespDto<List<PaintingMst>>> searchPainting(@Valid SearchReqDto searchReqDto, BindingResult bindingResult){
+        System.out.println(searchReqDto);
         return ResponseEntity
                 .ok()
                 .body(new CMRespDto<>(HttpStatus.OK.value(), "Successfully", paintingService.searchPainting(searchReqDto)));

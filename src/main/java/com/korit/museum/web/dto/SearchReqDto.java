@@ -9,8 +9,6 @@ public class SearchReqDto {
 
     private String searchValue;
 
-    private String category;
-
     private String order;
 
     @NotBlank

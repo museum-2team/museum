@@ -1,6 +1,5 @@
 window.onload = () => {
     PaintingService.getInstance().loadPaintingList();
-    // PaintingService.getInstance().loadCategories();
     ComponentEvent.getInstance().addClickEventSearchButton();
     ComponentEvent.getInstance().addClickEventDeleteButton();
     ComponentEvent.getInstance().addClickEventDeleteCheckAll();
@@ -65,27 +64,7 @@ class PaintingSearchApi {
             }
         });
         return returnData;
-        }
-
-        getCategories(){
-            let responseData = null;
-
-            $.ajax({
-                async: false,
-                type: "get",
-                url: "http://localhost:8000/api/admin/categories",
-                dataType: "json",
-                success: response => {
-                    console.log(response);
-                    responseData = response.data;
-                },
-                error: error => {
-                    console.log(error);
-                }
-            });
-
-            return responseData;
-        }
+    }
 
     deletePaintings(deleteArray){
         let returnFlag = false;
@@ -212,19 +191,6 @@ class PaintingService{
             }
         });
     }  
-
-    loadCategories(){
-        const responseData = PaintingSearchApi.getInstance().getCategories();
-
-        const categorySelect = document.querySelector(".category-select");
-        categorySelect.innerHTML = `<option value="">전체조회</option>`;
-
-        responseData.forEach(data => {
-            categorySelect.innerHTML += `
-            <option value="${data.category}">${data.category}</option>
-            `
-        })
-    }
 
     removePaintings(deleteArray){
         let successFlag = PaintingSearchApi.getInstance().deletePaintings(deleteArray);

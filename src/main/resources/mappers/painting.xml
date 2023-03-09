@@ -57,7 +57,7 @@
         </choose>
             pm.painting_id
         <if test='limit == "Y"'>
-            limit #{index}
+            limit #{index}, #{count}
         </if>
 
     </select>
