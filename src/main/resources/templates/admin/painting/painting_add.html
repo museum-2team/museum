@@ -7,12 +7,14 @@
     <title>포스코 미술관</title>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="/static/css/admin/painting_add.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/admin/painting_edit.css">
 </head>
 <body>
     <div id="container">
-        <main>
+        <main class="e">
             <aside class="main-container">
                 <div class="aside-title">
                     <h1 class="title-text-h1">관리자 시스템</h1>
@@ -99,7 +101,7 @@
                                 <input type="file" name="file" class="img-file">
                                 <button type="button" class="img-add-button" disabled>추가</button>
                                 <div class="img-container">
-                                    <img src="/static/images/no_img.png" alt="painting-img">
+                                    <img src="/static/images/no_img.png" class="painting-img" alt="painting-img">
                                 </div>
                                 <div class="button-group">
                                     <button type="button" class="img-add-button" disabled>이미지 등록</button>
