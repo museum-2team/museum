@@ -4,12 +4,32 @@
 }
 .main-container{
     background-color: black;
-    width: 100px;
+    width: 20%;
     height: 100%;
+    border-right: 4px solid #202020;
+    background-color: #202020;
+    box-sizing: border-box;
+  
+
     
 }
 .painting-title{
     font-size: 14px;
+}
+.aside-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid #202020;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    font-size:14px ;
+
+}
+.title-text-h1{
+    font-size: 24px;
+    color: #202020;
 }
 .painting-main{
     
@@ -55,4 +75,46 @@
     flex-direction: column;
     width: 100%;
     margin-bottom: 10px;
+}
+.main-menu{
+    padding: 20px 0px;
+    background-color: #101010;
+    box-sizing: border-box;
+    display: block;
+}
+.title-text-h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #505050;
+    border-bottom: 1px solid #505050;
+    height: 80px;
+    font-size: 18px;
+    box-sizing: border-box;
+    color: white;
+}
+.sub-menu{
+    font-size: 14px;
+    list-style-type: none;
+    box-sizing: border-box;
+    display: block;
+}
+.sub-menu a{
+    color: black;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.sub-menu a li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-size: 14px;
+    color: white;
+}
+.painting-title{
+    padding: 70px 70px 20px;
+    height: 120px;
+    font-size: 20px;
 }
