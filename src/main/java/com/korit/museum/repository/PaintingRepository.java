@@ -3,7 +3,9 @@ package com.korit.museum.repository;
 import com.korit.museum.entity.PaintingImage;
 import com.korit.museum.entity.PaintingMst;
 import com.korit.museum.web.dto.PaintingReqDto;
+import com.korit.museum.web.dto.SearchNumberListReqDto;
 import com.korit.museum.web.dto.SearchPaintingReqDto;
+import com.korit.museum.web.dto.SearchReqDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -11,9 +13,11 @@ import java.util.List;
 @Mapper
 public interface PaintingRepository {
 
+    public int getPaintingTotalCount(SearchNumberListReqDto searchNumberListReqDto);
+
     public PaintingMst findPaintingByPaintingCode (String paintingCode);
 
-    public List<PaintingMst> searchPainting(SearchPaintingReqDto searchPaintingReqDto);
+    public List<PaintingMst> searchPainting(SearchReqDto searchReqDto);
 
     public int savePainting (PaintingReqDto paintingReqDto);
 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포스코 미술관</title>
+    <!--  jQuery, bootstrap -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+
+    <!-- summernote css/js-->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+</head>
+<body>
+    <div id="container">
+        <main>
+            <aside class="main-container">
+                <div class="aside-title">
+                    <h1 class="title-text-h1">관리자 시스템</h1>
+                </div>
+                <nav class="main-menu">
+                    <h2 class="title-text-h2">전시 작품 관리</h2>
+                    <ul class="sub-menu">
+                        <a href="/templates/admin/painting/painting_search.html"><li>전시 작품 조회</li></a>
+                        <a href="/templates/admin/painting/painting_add.html"><li>전시 작품 등록</li></a>
+                        <a href="/templates/admin/painting/painting_edit.html"><li>작품 정보 수정</li></a>
+                        <a href="/templates/admin/painting/painting_remove.html"><li>작품 정보 수정</li></a>
+                    </ul>
+                    <h2 class="title-text-h2">컬렉션 관리</h2>
+                    <ul class="sub-menu">
+                        <a href="/templates/admin/painting/painting_search.html"><li>컬렉션 조회</li></a>
+                        <a href="/templates/admin/painting/painting_add.html"><li>컬렉션 등록</li></a>
+                        <a href="/templates/admin/painting/painting_edit.html"><li>컬렉션 수정</li></a>
+                        <a href="/templates/admin/painting/painting_remove.html"><li>컬렉션 삭제</li></a>
+                    </ul>
+                    <h2 class="title-text-h2">공지사항 관리</h2>
+                    <ul class="sub-menu">
+                        <a href="/templates/admin/painting/painting_search.html"><li>공지사항 조회</li></a>
+                        <a href="/templates/admin/painting/painting_add.html"><li>공지사항 등록</li></a>
+                        <a href="/templates/admin/painting/painting_edit.html"><li>공지사항 수정</li></a>
+                        <a href="/templates/admin/painting/painting_edit.html"><li>공지사항 수정</li></a>   
+                    </ul>
+                </nav>
+            </aside>
+
+            <div class="notice-container">
+                <h2>공지사항 작성</h2>
+                <div>
+                    <form method="post" action="/notice/add">
+                        <input type="text" name="title" placeholder="제목">
+                        <textarea name="content" id="summernote"></textarea>
+                        <button class="subBtn" type="button">글 작성</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/static/js/admin/notice/admin_notice.js"></script>
+</body>
+</html>

@@ -1,6 +1,5 @@
 window.onload = () => {
     PaintingService.getInstance().loadPaintingList();
-    PaintingService.getInstance().loadCategories();
     ComponentEvent.getInstance().addClickEventSearchButton();
     ComponentEvent.getInstance().addClickEventDeleteButton();
     ComponentEvent.getInstance().addClickEventDeleteCheckAll();
@@ -8,7 +7,6 @@ window.onload = () => {
 
 let searchObj = {
     page : 1,
-    category : "",
     searchValue : "",
     order : "paintingId",
     limit : "Y",
@@ -32,7 +30,7 @@ class PaintingSearchApi {
             type: "get",
             url: "http://localhost:8000/api/admin/paintings",
             data: searchObj,
-            dataType: "json",
+            dataType: "json",   
             success: response => {
                 console.log(response);
                 returnData = response.data;
@@ -54,7 +52,6 @@ class PaintingSearchApi {
             type: "get",
             url: "http://localhost:8000/api/admin/paintings/totalcount",
             data:{
-                "category": searchObj.category,
                 "searchValue": searchObj.searchValue
             },
             dataType: "json",
@@ -67,26 +64,6 @@ class PaintingSearchApi {
             }
         });
         return returnData;
-    }
-
-    getCategories(){
-        let responseData = null;
-
-        $.ajax({
-            async: false,
-            type: "get",
-            url: "http://localhost:8000/api/admin/categories",
-            dataType: "json",
-            success: response => {
-                console.log(response);
-                responseData = response.data;
-            },
-            error: error => {
-                console.log(error);
-            }
-        });
-
-        return responseData;
     }
 
     deletePaintings(deleteArray){
@@ -128,24 +105,25 @@ class PaintingService{
         const checkAll = document.querySelector(".delete-checkall");
         checkAll.checked = false;
 
-        const PaintingListBody = document.querySelector(".painting-table tbody");
-        PaintingListBody.innerHTML = "";
+        const paintingListBody = document.querySelector(".painting-table tbody");
+        paintingListBody.innerHTML = "";
 
         responseData.forEach((data, index) => {
-            PaintingListBody.innerHTML += `
-            <tr>
-                <td><input type="checkbox" class="delete-chekcbox"></td>
-                <td class="painting-id">${data.paintingId}</td>
-                <td>${data.paintingCode}</td>
-                <td>${data.paintingTitleName}</td>
-                <td>${data.exhibitionWorks}</td>
-                <td>${data.viewingTime}</td>
-                <td>${data.paintingName}</td>
-                <td>${data.author}</td>
-                <td>${data.paintingSize}</td>
-                <td>${data.year_of_Manufacture}</td>
-                <td>${data.material}</td>
-                <td><a href="/templates/admin/painting_edit.html?paintingCode=${data.paintingCode}"><i class="fa-solid fa-square-pen"></td>
+            paintingListBody.innerHTML += `
+                <tr>
+                    <td><input type="checkbox" class="delete-chekcbox"></td>
+                    <td class="painting-id">${data.paintingId}</td>
+                    <td>${data.paintingCode}</td>
+                    <td>${data.paintingTitleName}</td>
+                    <td>${data.exhibitionWorks}</td>
+                    <td>${data.viewingTime}</td>
+                    <td>${data.paintingName}</td>
+                    <td>${data.author}</td>
+                    <td>${data.paintingSize}</td>
+                    <td>${data.year_of_Manufacture}</td>
+                    <td>${data.material}</td>
+                    <td><a href="/templates/admin/painting_edit.html?paintingCode=${data.paintingCode}"><i class="fa-solid fa-square-pen"></td>
+                <tr>
             `;
         });
         
@@ -193,10 +171,10 @@ class PaintingService{
                         : searchObj.page - (searchObj.page % 5) + 1;
 
         const endIndex = startIndex + 4 <= maxPageNumber ? startIndex + 4 : maxPageNumber;
-        const pageNumber = document.querySelector(".page-number");
+        const pageNumbers = document.querySelector(".page-numbers");
 
         for(let i = startIndex; i <= endIndex; i++) {
-            pageNumber.innerHTML += `
+            pageNumbers.innerHTML += `
                 <a href="javascript:void(0)"class="page-button ${i == searchObj.page ? "disabled" : ""}><li>${i}</li></a>
             `;
         }
@@ -213,19 +191,6 @@ class PaintingService{
             }
         });
     }  
-
-    loadCategories(){
-        const responseData = PaintingSearchApi.getInstance().getCategories();
-
-        const categorySelect = document.querySelector(".category-select");
-        categorySelect.innerHTML = `<option value="">전체조회</option>`;
-
-        responseData.forEach(data => {
-            categorySelect.innerHTML += `
-            <option value="${data.category}">${data.category}</option>
-            `
-        })
-    }
 
     removePaintings(deleteArray){
         let successFlag = PaintingSearchApi.getInstance().deletePaintings(deleteArray);
@@ -253,7 +218,7 @@ class ComponentEvent{
         
         searchButton.onclick = () => {
             searchObj.category = categorySelect.value;
-            searchObj.searchValue = categorySelect.value;
+            searchObj.searchValue = searchInput.value;
             searchObj.page = 1;
             
             PaintingService.getInstance().loadPaintingList();
