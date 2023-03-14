@@ -1,5 +1,5 @@
 window.onload = () => {
-    
+    PaintingDetailService.getInstance().loadPaintingDetail();
 }
 
 class PaintingApi{
@@ -56,6 +56,23 @@ class PaintingDetailService{
     }
 
     getPaintingInfo(responseData){
-        const paintingTitleName = document.querySelector
+        const paintingTitleName = document.querySelector(".paining-title-name");
+        const exhibitionWorks = document.querySelector(".exhibition-works");
+        const viewingTime = document.querySelector(".viewing-time");
+        const paintingName = document.querySelector(".painting-name");
+        const author = document.querySelector(".author");
+        const paintingSize = document.querySelector(".painting-size");
+        const year_of_Manufacture = document.querySelector(".year-of-manufacture");
+        const material = document.querySelector(".material");
+
+        paintingTitleName.textContent = responseData.TitleName;
+        exhibitionWorks.textContent = responseData.ExhibitionWorks;
+        viewingTime.textContent =  responseData.ViewingTime;
+        paintingName.textContent = responseData.PaintingName;
+        author.textContent = responseData.Author;
+        paintingSize.textContent = responseData.PaintingSize;
+        year_of_Manufacture.textContent = responseData.Year_Of_Manufacture;
+        material.textContent = responseData.Material;
+
     }
 }

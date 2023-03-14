@@ -1,0 +1,145 @@
+.notice-container{
+    
+}
+.title{
+    width: 650px;
+    height: 82px;
+    text-align: center;
+    border-bottom: 2px solid #4f4f4f;
+    display: block;
+}
+.notice-title{
+    font-size: 40px;
+    
+    height: auto;
+    width:auto;
+    margin: auto;
+    text-align: center;
+    
+    justify-content: flex-end;
+    color: black;
+    
+}
+.title-img{
+    
+}
+.td{
+    height:  32px;
+}
+.main-information{
+    display: table-header-group;
+    vertical-align: middle;
+}
+.number-count{
+    height: 22px;
+    width: 21px;
+    margin: none;
+
+}
+.title2{
+    
+    overflow: hidden;
+    margin:0 0 0 10px;
+    padding:0 0 10px;
+    height: 22px;
+    width: 423px;
+}
+.registration-date{
+    width: 100px;
+    height: 22px;
+}
+.check-count{
+    
+    overflow: hidden;
+    width: 85px;
+    height: 22px;
+    margin: 0 0 0 10px;
+    padding: 0 0 10px;
+}
+.blind{
+    position: absolute;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+.main-information tr td div{
+    height: 32px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #7f7f7f;
+}
+.main-table{
+    margin-top: 20px;
+}
+/* .main-asd tr td {
+    padding: 9px 0px 9px 0px ;
+} */
+.page-controller{
+    
+    margin: 0;
+    margin-top: 20px;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+
+
+
+}
+.page-controller-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+}
+.page-controller a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+
+}
+.page-controller a:hover{
+    text-decoration: underline;
+    font-weight: bold;
+
+}
+.page-numbers{
+    display: flex;
+}
+.tbody tr td{
+    padding: 9px 5px 9px 0px;
+}
+.main-asd-1{
+    width: 15px;
+    height: 18px;
+    text-align: center;
+    padding: 0;
+    
+    
+}
+.main-asd-2{
+    padding: 9px 0px 9px 10px ;
+}
+.main-asd-3{
+    
+}
+.main-asd-4{
+    padding: 9px 0px 9px 10px ;
+
+}
+

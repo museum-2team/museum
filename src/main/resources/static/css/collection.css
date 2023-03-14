@@ -6,12 +6,27 @@
     min-height: 750px;
     margin: 0 auto;
     
+<<<<<<< HEAD
 }
 .main-collection-titel{
     
     font-size: 40px;
     
     justify-content: flex-end;
+=======
+    
+}
+.main-collection-titel{
+    font-size: 40px;
+    
+    height: auto;
+    width:auto;
+    margin: auto;
+    text-align: center;
+    
+    justify-content: flex-end;
+    color: black;
+>>>>>>> front
     
 
 }
@@ -19,6 +34,10 @@
     width: 221px;
 }
 .collection-search{
+<<<<<<< HEAD
+=======
+    margin-bottom:10px ;
+>>>>>>> front
     
     display: flex;
 }
@@ -28,6 +47,11 @@
     border-radius: 0px;
     outline:none;
     width: 470px;
+<<<<<<< HEAD
+=======
+    height: 30px;
+    font-size: 20px;
+>>>>>>> front
     
     
 }
@@ -54,6 +78,13 @@
     margin-right: 0px;
     margin-bottom: 30px;
 }
+<<<<<<< HEAD
+=======
+.hr-a{
+    
+    width: 650px;
+}
+>>>>>>> front
 
 .p-i-m{
     height: 249px;
@@ -76,8 +107,14 @@
     text-decoration:none;
     color: #666;
     cursor: pointer;
+<<<<<<< HEAD
 
 }
+=======
+    
+}
+
+>>>>>>> front
 .info-wrap{
     position: absolute;
     top: 0px;
@@ -109,5 +146,61 @@
     
 
 }
+<<<<<<< HEAD
 
 
+=======
+.page-controller{
+    
+    margin: 0;
+    margin-top: 20px;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+
+
+
+}
+.page-controller-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+}
+.page-controller a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+
+}
+.page-controller a:hover{
+    text-decoration: underline;
+    font-weight: bold;
+
+}
+.disabled{
+    text-decoration: none;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.page-numbers{
+    display: flex;
+}
+
+>>>>>>> front
